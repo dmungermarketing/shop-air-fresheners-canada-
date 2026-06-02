@@ -6,8 +6,8 @@ interface Props {
 }
 
 const {
-  title = 'Shop Scent Bomb Air Fresheners in Canada — 5-Second Odor Kill',
-  description = 'Buy Scent Bomb concentrated air fresheners online in Canada. 9 bold fragrances. Eliminates odors in 5 seconds. Ships from Canada — no customs fees, 30-day returns.',
+  title = 'Scent Bomb Canada | Buy Air Fresheners for Cars, Bathrooms',
+  description = 'Buy Scent Bomb anti-odor air fresheners in Canada. Concentrated sprays for cars, bathrooms, toilets. 9 fragrances: Black Cherry, Vanilla, Hawaiian Blue & more. Fast Canadian shipping.',
   canonical = Astro.url.href,
 } = Astro.props;
 
@@ -42,16 +42,50 @@ const faqSchema = {
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
+  '@id': `${SITE_URL}/#product`,
   name: 'Scent Bomb Concentrated Air Freshener Spray',
-  description: 'Concentrated, oil-based air freshener spray that eliminates odors in cars, bathrooms and homes in seconds. Available in 9 fragrances and in 1 oz and 8 oz XL sizes.',
+  alternateName: ['Scent Bomb', 'Scent Bomb Air Freshener', 'Scent Bomb Anti-Odor Spray', 'Scent Bomb Spray', 'Scent Bomb for Cars'],
+  description: 'Buy Scent Bomb concentrated anti-odor air freshener spray in Canada. The most powerful 5-second odor eliminator for cars, bathrooms, toilets, gym bags, kitchens and homes. 100% pure fragrance oil. 9 fragrances available: Black Cherry, Mango Tropical, Hawaiian Blue, Clean Cotton, Vanilla, Green Bomb, Coconut Paradise, Tangerine Blast and New Car. 1 oz pocket size and 8 oz XL refill. Works as a pre-poop toilet spray, car air freshener and bathroom deodorant spray.',
+  category: 'Air Fresheners > Concentrated Anti-Odor Sprays',
+  image: [
+    OG_IMAGE,
+    `${SITE_URL}/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp`,
+    `${SITE_URL}/images/black-cherry.webp`,
+    `${SITE_URL}/images/mango-tropical.webp`,
+    `${SITE_URL}/images/hawaiian-blue.webp`,
+    `${SITE_URL}/images/clean-cotton.webp`,
+  ],
   brand: { '@type': 'Brand', name: 'Scent Bomb' },
+  manufacturer: { '@type': 'Organization', name: 'Scent Bomb', address: { '@type': 'PostalAddress', addressCountry: 'US' } },
+  countryOfOrigin: { '@type': 'Country', name: 'US' },
+  keywords: 'scent bomb canada, scent bomb spray, scent bomb for cars, scent bomb air freshener, anti-odor spray, toilet spray, bathroom spray, concentrated air freshener',
   offers: {
     '@type': 'AggregateOffer',
+    offerCount: 9,
     priceCurrency: 'CAD',
     lowPrice: '9.99',
     highPrice: '39.99',
     availability: 'https://schema.org/InStock',
+    seller: { '@id': `${SITE_URL}/#organization` },
     url: AMAZON_URL,
+    shippingDetails: {
+      '@type': 'OfferShippingDetails',
+      shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'CA' },
+      shippingRate: { '@type': 'MonetaryAmount', currency: 'CAD' },
+      deliveryTime: {
+        '@type': 'ShippingDeliveryTime',
+        handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
+        transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 7, unitCode: 'DAY' },
+      },
+    },
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy',
+      applicableCountry: 'CA',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      merchantReturnDays: 30,
+      returnMethod: 'https://schema.org/ReturnByMail',
+      returnFees: 'https://schema.org/FreeReturn',
+    },
   },
 };
 
@@ -154,8 +188,8 @@ const breadcrumbSchema = {
     <meta name="apple-mobile-web-app-title" content="Shop Air Fresheners" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Keywords (still indexed by Bing/Yandex even if Google ignores) -->
-    <meta name="keywords" content="shop air fresheners canada, scent bomb canada, scent bomb air freshener, anti-odor spray canada, concentrated air freshener, car air freshener canada, bathroom air freshener, pocket air freshener spray, buy scent bomb online, 5 second odor eliminator, air freshener spray canada" />
+    <!-- Keywords (top targets from Semrush research — Bing/Yandex still index these) -->
+    <meta name="keywords" content="scent bomb canada, scent bomb, scent bomb spray, scent bomb air freshener, scent bomb for cars, scent bombs for cars, scent bomb for car, where to buy scent bomb, where can i buy scent bomb, bomb scents air fresheners, scent bomb black cherry, scent bomb vanilla, scent bomb clean cotton, scent bomb hawaiian blue, scent bomb mango tropical, scent bomb green bomb, scent bomb new car, scent bomb car freshener, scent bomb car air freshener, vehicle scent bomb, cherry bomb car scent, how to use scent bomb air freshener, how to use scent bomb, scent bombs for home, scent bombs for house, air freshener spray, air freshener spray canada, air freshener for bathroom, air fresheners for bathroom, bathroom air freshener, bathroom air fresheners, bathroom air freshener spray, bathroom spray, bathroom spray freshener, bathroom deodorant spray, bathroom fragrance spray, bathroom odor spray, bathroom refresh spray, bathroom scent spray, toilet spray, toilet air freshener, toilet air freshener spray, toilet air fresheners, best air freshener for toilet, poo toilet spray, poo spray for toilet, poop spray toilet, pre poop toilet spray, anti odor spray, air freshener room spray, room air freshener spray, car air freshener canada, concentrated air freshener spray" />
 
     <!-- Open Graph (Facebook, LinkedIn, Pinterest) -->
     <meta property="og:type" content="website" />
