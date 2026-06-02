@@ -63,29 +63,13 @@ const productSchema = {
     '@type': 'AggregateOffer',
     offerCount: 9,
     priceCurrency: 'CAD',
-    lowPrice: '9.99',
+    lowPrice: '14.99',
     highPrice: '39.99',
     availability: 'https://schema.org/InStock',
     seller: { '@id': `${SITE_URL}/#organization` },
     url: AMAZON_URL,
-    shippingDetails: {
-      '@type': 'OfferShippingDetails',
-      shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'CA' },
-      shippingRate: { '@type': 'MonetaryAmount', currency: 'CAD' },
-      deliveryTime: {
-        '@type': 'ShippingDeliveryTime',
-        handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
-        transitTime: { '@type': 'QuantitativeValue', minValue: 2, maxValue: 7, unitCode: 'DAY' },
-      },
-    },
-    hasMerchantReturnPolicy: {
-      '@type': 'MerchantReturnPolicy',
-      applicableCountry: 'CA',
-      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-      merchantReturnDays: 30,
-      returnMethod: 'https://schema.org/ReturnByMail',
-      returnFees: 'https://schema.org/FreeReturn',
-    },
+    // Shipping & return policy come from Amazon Canada's own listing — not declared here
+    // (Amazon-managed; would mislead if we claim policies we don't control)
   },
 };
 
@@ -122,8 +106,7 @@ const localBusinessSchema = {
   description: 'Online Canadian retailer specializing in Scent Bomb concentrated air freshener sprays. 9 fragrances available with fast Canadian shipping via Amazon storefront.',
   url: SITE_URL,
   image: OG_IMAGE,
-  priceRange: '$$',
-  paymentAccepted: 'Credit Card, Amazon Pay',
+  // Sales are fulfilled through Amazon Canada — they handle payment + shipping + returns
   currenciesAccepted: 'CAD',
   areaServed: {
     '@type': 'Country',
