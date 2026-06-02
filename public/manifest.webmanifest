@@ -1,0 +1,21 @@
+{
+  "name": "Shop Air Fresheners Canada",
+  "short_name": "Air Fresheners",
+  "description": "Shop Scent Bomb concentrated air fresheners in Canada. 9 bold fragrances, 5-second odor elimination, fast Canadian shipping.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F5F1E8",
+  "theme_color": "#0F766E",
+  "lang": "en-CA",
+  "categories": ["shopping", "lifestyle", "home"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

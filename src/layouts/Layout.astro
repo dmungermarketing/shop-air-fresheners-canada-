@@ -6,10 +6,15 @@ interface Props {
 }
 
 const {
-  title = 'Scent Bomb Air Freshener Canada | Odor Gone in 5 Seconds',
-  description = 'Shop Scent Bomb concentrated air fresheners in Canada. Eliminate odors in your car, bathroom and home in 5 seconds flat. Fast Canadian shipping, easy returns.',
+  title = 'Shop Scent Bomb Air Fresheners in Canada — 5-Second Odor Kill',
+  description = 'Buy Scent Bomb concentrated air fresheners online in Canada. 9 bold fragrances. Eliminates odors in 5 seconds. Ships from Canada — no customs fees, 30-day returns.',
   canonical = Astro.url.href,
 } = Astro.props;
+
+const SITE_URL = 'https://shopairfresheners.ca';
+const OG_IMAGE = `${SITE_URL}/images/og-image.webp`;
+const OG_IMAGE_WIDTH = 1200;
+const OG_IMAGE_HEIGHT = 630;
 
 // PLACEHOLDER — replace with the real Amazon storefront URL before publishing
 const AMAZON_URL = 'https://www.amazon.ca/REPLACE-WITH-YOUR-STOREFRONT';
@@ -53,9 +58,65 @@ const productSchema = {
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
   name: 'BRISE',
+  alternateName: 'Shop Air Fresheners Canada',
   description: 'Independent Canadian retailer of Scent Bomb concentrated air fresheners.',
-  url: canonical,
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.svg`,
+  image: OG_IMAGE,
+  areaServed: { '@type': 'Country', name: 'Canada' },
+  sameAs: [AMAZON_URL],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: 'Shop Air Fresheners Canada',
+  description: 'Shop Scent Bomb concentrated air fresheners in Canada. 5-second odor elimination, 9 fragrances, fast Canadian shipping.',
+  inLanguage: 'en-CA',
+  publisher: { '@id': `${SITE_URL}/#organization` },
+};
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OnlineStore',
+  '@id': `${SITE_URL}/#store`,
+  name: 'Shop Air Fresheners Canada — Scent Bomb Reseller',
+  description: 'Online Canadian retailer specializing in Scent Bomb concentrated air freshener sprays. 9 fragrances available with fast Canadian shipping via Amazon storefront.',
+  url: SITE_URL,
+  image: OG_IMAGE,
+  priceRange: '$$',
+  paymentAccepted: 'Credit Card, Amazon Pay',
+  currenciesAccepted: 'CAD',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Canada',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Scent Bomb Fragrance Collection',
+    itemListElement: [
+      'Black Cherry', 'Mango Tropical', 'Hawaiian Blue', 'Clean Cotton',
+      'Vanilla', 'Green Bomb', 'Coconut Paradise', 'Tangerine Blast', 'New Car'
+    ].map((scent, i) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Product', name: `Scent Bomb ${scent} Air Freshener Spray (1 oz)` },
+      priceCurrency: 'CAD',
+      availability: 'https://schema.org/InStock',
+      position: i + 1,
+    })),
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+  ],
 };
 ---
 
@@ -63,33 +124,79 @@ const orgSchema = {
 <html lang="en-CA">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Primary SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#F5F1E8" />
+    <!-- Indexing & crawler hints -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
 
-    <!-- Open Graph (absolute URLs required for FB/Twitter previews) -->
+    <!-- Author / Publisher -->
+    <meta name="author" content="BRISE — Independent Canadian Retailer" />
+    <meta name="publisher" content="BRISE" />
+
+    <!-- Geo targeting (Canada) -->
+    <meta name="geo.region" content="CA" />
+    <meta name="geo.placename" content="Canada" />
+    <meta name="ICBM" content="56.1304, -106.3468" />
+
+    <!-- Theme & app -->
+    <meta name="theme-color" content="#0F766E" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#134E4A" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Shop Air Fresheners" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Keywords (still indexed by Bing/Yandex even if Google ignores) -->
+    <meta name="keywords" content="shop air fresheners canada, scent bomb canada, scent bomb air freshener, anti-odor spray canada, concentrated air freshener, car air freshener canada, bathroom air freshener, pocket air freshener spray, buy scent bomb online, 5 second odor eliminator, air freshener spray canada" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Pinterest) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="en_CA" />
+    <meta property="og:locale:alternate" content="fr_CA" />
     <meta property="og:site_name" content="Shop Air Fresheners Canada" />
-    <meta property="og:image" content="https://shopairfresheners.ca/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp" />
-    <meta property="og:image:width" content="1791" />
-    <meta property="og:image:height" content="878" />
-    <meta property="og:image:alt" content="Scent Bomb concentrated air fresheners — 9 fragrances available in Canada" />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:secure_url" content={OG_IMAGE} />
+    <meta property="og:image:width" content={String(OG_IMAGE_WIDTH)} />
+    <meta property="og:image:height" content={String(OG_IMAGE_HEIGHT)} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Scent Bomb concentrated air fresheners — 9 fragrances available in Canada with 5-second odor elimination" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://shopairfresheners.ca/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp" />
+    <meta name="twitter:image" content={OG_IMAGE} />
+    <meta name="twitter:image:alt" content="Scent Bomb concentrated air fresheners — 9 fragrances available in Canada" />
+    <meta name="twitter:domain" content="shopairfresheners.ca" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#0F766E" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- DNS prefetch + preconnect (perf) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.amazon.ca" />
+    <link rel="preconnect" href="https://d3e54v103j8qbb.cloudfront.net" crossorigin />
+    <link rel="dns-prefetch" href="https://www.amazon.ca" />
+
+    <!-- LCP boost: preload hero image (desktop default, mobile uses media query) -->
+    <link rel="preload" as="image" href="/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2-p-1080.webp" media="(min-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/hero-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
 
     <!-- Webflow CSS -->
     <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
@@ -97,20 +204,18 @@ const orgSchema = {
     <link href="/css/scent-bomb-air-fresheners.webflow.css" rel="stylesheet" type="text/css" />
 
     <!-- Google Fonts (Montserrat for BRISE branding + body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Montserrat+Alternates:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
-    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="preconnect" href="https://www.amazon.ca" />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <!-- BRISE Custom Styles (carried over from Webflow custom code) -->
     <style is:global>
