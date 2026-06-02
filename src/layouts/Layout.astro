@@ -131,16 +131,19 @@ const localBusinessSchema = {
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Scent Bomb Fragrance Collection',
+    name: 'Scent Bomb Fragrance Collection — 9 Anti-Odor Air Freshener Sprays',
     itemListElement: [
       'Black Cherry', 'Mango Tropical', 'Hawaiian Blue', 'Clean Cotton',
       'Vanilla', 'Green Bomb', 'Coconut Paradise', 'Tangerine Blast', 'New Car'
     ].map((scent, i) => ({
       '@type': 'Offer',
-      itemOffered: { '@type': 'Product', name: `Scent Bomb ${scent} Air Freshener Spray (1 oz)` },
+      name: `Scent Bomb ${scent} Air Freshener Spray (1 oz)`,
+      description: `Scent Bomb ${scent} — concentrated 1 oz anti-odor spray. Eliminates odors in 5 seconds. Shipped from Canada.`,
       priceCurrency: 'CAD',
       availability: 'https://schema.org/InStock',
       position: i + 1,
+      url: AMAZON_URL,
+      seller: { '@id': `${SITE_URL}/#organization` },
     })),
   },
 };
