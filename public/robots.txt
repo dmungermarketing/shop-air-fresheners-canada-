@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /admin/
+
+Sitemap: https://shopairfresheners.ca/sitemap-index.xml

@@ -1,0 +1,670 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Scent Bomb Air Freshener Canada | Odor Gone in 5 Seconds',
+  description = 'Shop Scent Bomb concentrated air fresheners in Canada. Eliminate odors in your car, bathroom and home in 5 seconds flat. Fast Canadian shipping, easy returns.',
+  canonical = Astro.url.href,
+} = Astro.props;
+
+// PLACEHOLDER — replace with the real Amazon storefront URL before publishing
+const AMAZON_URL = 'https://www.amazon.ca/REPLACE-WITH-YOUR-STOREFRONT';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How do I use Scent Bomb spray for the best results?', acceptedAnswer: { '@type': 'Answer', text: 'Hold the bottle 1 to 2 inches from a surface and apply 1 to 2 sprays onto a floor mat, under a seat, inside a bin, or onto a cotton ball. Do not spray it into the air: it is pure oil and can leave a slippery film on hard surfaces. A little goes a long way.' } },
+    { '@type': 'Question', name: 'How long does Scent Bomb last?', acceptedAnswer: { '@type': 'Answer', text: 'Because it is concentrated fragrance oil, a single application typically keeps a small space fresh all day and often into the next. A cotton ball sprayed once can hold its scent for several days.' } },
+    { '@type': 'Question', name: 'Which Scent Bomb fragrance should I choose?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on the space. Black Cherry and Mango Tropical are bold and popular for cars. Vanilla and Black Bomb are warm, safe choices for shared spaces. Clean Cotton is the most neutral and versatile, ideal for gym bags, bathrooms and offices. Green Bomb is the pick for a crisp, masculine scent.' } },
+    { '@type': 'Question', name: 'Is Scent Bomb safe to use in my car?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, apply it to the floor mat, under a seat, or onto a cotton ball. Avoid the dashboard, pedals and steering wheel: the oil can be slippery on hard surfaces you touch or step on.' } },
+    { '@type': 'Question', name: 'Can I use Scent Bomb in the toilet?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, and it works well. Spray 3 to 4 sprays directly onto the water in the bowl. The oil floats and forms a thin barrier across the surface that helps trap odors before they rise into the room.' } },
+    { '@type': 'Question', name: 'Does Scent Bomb eliminate odors or just cover them?', acceptedAnswer: { '@type': 'Answer', text: 'Because it is so concentrated, Scent Bomb overpowers an odor rather than faintly layering over it, especially when you apply it at the source of the smell.' } },
+    { '@type': 'Question', name: 'How much does one bottle cover?', acceptedAnswer: { '@type': 'Answer', text: 'A couple of sprays handle a car interior or a small bathroom. For larger rooms, a spray or two in each corner does it. The 1 oz bottle lasts a long time in a single space; the 8 oz XL covers a whole house.' } },
+    { '@type': 'Question', name: 'Is Scent Bomb good for travel?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, it is one of the most travel-friendly air fresheners out there. The 1 oz bottle is small enough for a pocket, purse, glove box or carry-on.' } },
+    { '@type': 'Question', name: 'Will Scent Bomb leave an oily residue?', acceptedAnswer: { '@type': 'Answer', text: 'Only if it is used incorrectly. Sprayed onto fabric, mats, cotton balls or the inside of containers, as intended, there is no issue.' } },
+    { '@type': 'Question', name: 'Can Scent Bomb help with smelly sports equipment?', acceptedAnswer: { '@type': 'Answer', text: 'It is great for keeping gym bags, lockers and shoes fresh between uses. Clean Cotton is the favourite for this.' } },
+    { '@type': 'Question', name: 'Where can I buy Scent Bomb in Canada?', acceptedAnswer: { '@type': 'Answer', text: 'Right here. Click any Shop Scent Bomb button and you will be taken to our storefront to complete your order, with fast shipping anywhere in Canada.' } },
+    { '@type': 'Question', name: 'How fast is shipping within Canada?', acceptedAnswer: { '@type': 'Answer', text: 'Orders ship quickly from within Canada, with no slow cross-border wait and no customs fees.' } },
+    { '@type': 'Question', name: 'Is Scent Bomb really made in the USA?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Scent Bomb is made in the USA from 100% pure fragrance oil. We are an independent Canadian seller making the full lineup available to Canadian customers with local shipping.' } },
+  ],
+};
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Scent Bomb Concentrated Air Freshener Spray',
+  description: 'Concentrated, oil-based air freshener spray that eliminates odors in cars, bathrooms and homes in seconds. Available in 9 fragrances and in 1 oz and 8 oz XL sizes.',
+  brand: { '@type': 'Brand', name: 'Scent Bomb' },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'CAD',
+    lowPrice: '9.99',
+    highPrice: '39.99',
+    availability: 'https://schema.org/InStock',
+    url: AMAZON_URL,
+  },
+};
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'BRISE',
+  description: 'Independent Canadian retailer of Scent Bomb concentrated air fresheners.',
+  url: canonical,
+};
+---
+
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#F5F1E8" />
+
+    <!-- Open Graph (absolute URLs required for FB/Twitter previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:site_name" content="Shop Air Fresheners Canada" />
+    <meta property="og:image" content="https://shopairfresheners.ca/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp" />
+    <meta property="og:image:width" content="1791" />
+    <meta property="og:image:height" content="878" />
+    <meta property="og:image:alt" content="Scent Bomb concentrated air fresheners — 9 fragrances available in Canada" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://shopairfresheners.ca/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp" />
+
+    <!-- Webflow CSS -->
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/css/webflow.css" rel="stylesheet" type="text/css" />
+    <link href="/css/scent-bomb-air-fresheners.webflow.css" rel="stylesheet" type="text/css" />
+
+    <!-- Google Fonts (Montserrat for BRISE branding + body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Montserrat+Alternates:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="preconnect" href="https://www.amazon.ca" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+    <!-- BRISE Custom Styles (carried over from Webflow custom code) -->
+    <style is:global>
+      :root {
+        --brise-teal: #0F766E;
+        --brise-teal-deep: #134E4A;
+        --brise-cream: #F5F1E8;
+        --brise-teal-soft: rgba(15, 118, 110, 0.04);
+      }
+
+      html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+      /* NAVBAR STICKY — floating with breathing room at top */
+      body > .navbar,
+      .navbar,
+      .navbar.w-nav,
+      div.navbar.w-nav {
+        position: fixed !important;
+        top: 1rem !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+        background-color: transparent !important;
+      }
+      .navbar-component {
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        background-color: rgba(245, 241, 232, 0.88) !important;
+        transition: all 0.3s ease !important;
+        padding: 0.85rem 1.5rem !important;
+        overflow: visible !important;
+        align-items: center !important;
+      }
+      .navbar .right-navbar-content,
+      .navbar .nav-menu,
+      .navbar .button-border { align-items: center !important; }
+      @media (max-width: 767px) {
+        body > .navbar,
+        .navbar,
+        .navbar.w-nav,
+        div.navbar.w-nav {
+          top: 0.5rem !important;
+        }
+      }
+
+      /* HERO IMAGE — Force visible on all breakpoints (Webflow theme hides on mobile by default) */
+      .hero-image {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+      }
+      .hero-background-2 {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 0 !important;
+      }
+      .hero-heading-2 { z-index: 5 !important; }
+      .button-hero { z-index: 5 !important; }
+      .hero-grid-2 { z-index: 4 !important; }
+
+      /* MOBILE HERO — Image fills hero, original Webflow title style preserved (cream + shadow + teal underline) */
+      @media (max-width: 767px) {
+        .hero-wrapper-2 {
+          background-color: #1a1a1a !important;
+        }
+        /* Slight dark overlay so cream H1 with text-shadow remains crisply readable */
+        .hero-background-2::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.55) 100%);
+          z-index: 1;
+          pointer-events: none;
+        }
+        .hero-image {
+          object-position: center center !important;
+        }
+
+        /* Hide the desktop circular STAY TUNED / EXPLORE button on mobile — CTA pill handles it */
+        .button-hero { display: none !important; }
+      }
+
+      /* HERO CIRCULAR BUTTON — STAY TUNED → EXPLORE SCENTS */
+      .button-hero {
+        cursor: pointer !important;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+      .button-hero .circular-text {
+        animation: brise-spin 18s linear infinite;
+        transition: animation-duration 0.4s ease;
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+        inset: 0;
+      }
+      .button-hero .circular-text svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .button-hero .circular-text svg text {
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        fill: var(--brise-teal-deep);
+        text-transform: uppercase;
+      }
+      .button-hero:hover .circular-text {
+        animation-duration: 6s;
+      }
+      .button-hero:hover .circular-text svg text {
+        fill: var(--brise-teal);
+      }
+      .button-hero:hover {
+        transform: scale(1.12) !important;
+        box-shadow: 0 0 0 10px rgba(15, 118, 110, 0.18), 0 22px 50px rgba(15, 118, 110, 0.4) !important;
+      }
+      .button-hero:hover .button-arrow {
+        animation: brise-bounce 0.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+      .button-hero:active {
+        transform: scale(0.97) !important;
+        transition: transform 0.15s ease !important;
+      }
+      @keyframes brise-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes brise-bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(4px); }
+      }
+
+      /* BRISE WORDMARK navbar */
+      .brand .logo-navbar { display: none !important; }
+      .brand::before {
+        content: "BRISE";
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        color: var(--brise-teal);
+        text-transform: uppercase;
+        line-height: 1;
+        transition: color 0.3s ease;
+      }
+      .brand:hover::before { color: var(--brise-teal-deep); }
+
+      /* NAV LINKS */
+      .nav-menu .nav-link[href="/"],
+      .nav-menu .nav-link[href="/contact"] { display: none !important; }
+      .nav-menu .nav-link {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.02em !important;
+        color: var(--brise-teal-deep) !important;
+        transition: color 0.3s ease !important;
+        position: relative;
+      }
+      .nav-menu .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 1.5px;
+        background: var(--brise-teal);
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .nav-menu .nav-link:hover { color: var(--brise-teal) !important; }
+      .nav-menu .nav-link:hover::after { width: 100%; }
+
+      /* BUY BUTTON */
+      .button-navbar .text-size-small { font-size: 0; }
+      .button-navbar .text-size-small::after {
+        content: "BUY";
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+      }
+      .button-navbar {
+        background-color: var(--brise-teal) !important;
+        color: var(--brise-cream) !important;
+        padding: 8px 20px !important;
+        border-radius: 999px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 14px rgba(15, 118, 110, 0.3) !important;
+        border: none !important;
+        border-bottom: none !important;
+        line-height: 1 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+      }
+      .button-navbar:hover {
+        border-bottom: none !important;
+      }
+      .button-navbar:hover {
+        background-color: var(--brise-teal-deep) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 22px rgba(15, 118, 110, 0.45) !important;
+      }
+
+      /* FOOTER */
+      .footer-link[href="/"],
+      .footer-link[href="/products"],
+      .footer-link[href="/contact"] { display: none !important; }
+      .logo-footer { display: none !important; }
+      .footer-heading::before {
+        content: "BRISE";
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-size: 2rem;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        color: var(--brise-teal);
+        text-transform: uppercase;
+        line-height: 1;
+      }
+      .footer-grid .footer-grid-wrap:nth-child(3),
+      .footer-grid .footer-grid-wrap:nth-child(4),
+      .footer-component .footer-links-wrapper > .footer-links,
+      .credits-wrapper .credits { display: none !important; }
+      .credits-wrapper p:first-child::after {
+        content: " 2026 BRISE. Independent Canadian retailer. Scent Bomb® is a trademark of its respective owner.";
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 0.78rem;
+        letter-spacing: 0.01em;
+        line-height: 1.5;
+      }
+      .credits-wrapper {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+      }
+      .credits-wrapper p:first-child { margin: 0 !important; }
+      .footer-social-wrapper .footer-social:nth-child(1),
+      .footer-social-wrapper .footer-social:nth-child(2),
+      .footer-social-wrapper .footer-social:nth-child(4) { display: none !important; }
+      .footer-social-wrapper .footer-social:nth-child(3) { transition: all 0.3s ease; }
+      .footer-social-wrapper .footer-social:nth-child(3):hover {
+        transform: translateY(-2px);
+        filter: brightness(0) saturate(100%) invert(28%) sepia(85%) saturate(450%) hue-rotate(127deg);
+      }
+
+      /* BEST SELLER BADGE */
+      .best-seller-badge {
+        position: absolute !important;
+        top: 14px !important;
+        right: 14px !important;
+        left: auto !important;
+        z-index: 5 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        padding: 6px 11px !important;
+        border-radius: 999px !important;
+        background-color: var(--brise-teal) !important;
+        color: var(--brise-cream) !important;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 0.62rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.16em !important;
+        text-transform: uppercase !important;
+        line-height: 1 !important;
+        transform: none !important;
+        box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35), 0 0 0 1px rgba(245, 241, 232, 0.25) inset !important;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+      .best-seller-badge::before { content: "★"; font-size: 0.78rem; color: var(--brise-cream); }
+      .product-link:hover .best-seller-badge {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 22px rgba(15, 118, 110, 0.45), 0 0 0 1px rgba(245, 241, 232, 0.3) inset !important;
+      }
+
+      /* BACKGROUNDS */
+      .wis-section,
+      .uui-section_layout18 {
+        background-color: var(--brise-teal-soft) !important;
+        background-image:
+          radial-gradient(circle at 12% 15%, rgba(15, 118, 110, 0.06), transparent 35%),
+          radial-gradient(circle at 88% 85%, rgba(15, 118, 110, 0.04), transparent 40%) !important;
+      }
+
+      /* BENTO Text readability */
+      .bento-component .card-big { position: relative; overflow: hidden; }
+      .bento-component .card-big::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(100deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.70) 30%, rgba(0,0,0,0.30) 55%, transparent 80%);
+        z-index: 1;
+        pointer-events: none;
+        border-radius: inherit;
+        transition: background 0.4s ease;
+      }
+      .bento-component .card-big:hover::before {
+        background: linear-gradient(100deg, rgba(15,118,110,0.88) 0%, rgba(19,78,74,0.72) 30%, rgba(0,0,0,0.35) 55%, transparent 80%);
+      }
+      .bento-component .card-big .card-big-content {
+        position: relative;
+        z-index: 3 !important;
+        padding: 2rem 2.5rem !important;
+        max-width: 60% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+        height: 100%;
+        justify-content: space-between;
+      }
+      .bento-component .card-big .heading-6 {
+        color: var(--brise-cream) !important;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 1.2rem !important;
+        line-height: 1.45 !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.005em !important;
+        text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.6) !important;
+        margin: 0 !important;
+      }
+      .bento-component .card-big .max-width-60ch,
+      .bento-component .card-big .max-width-40ch { max-width: 100% !important; }
+      .bento-component .card-big .secondary-button {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 10px 20px !important;
+        background-color: rgba(245,241,232,0.95) !important;
+        color: var(--brise-teal-deep) !important;
+        border-radius: 999px !important;
+        width: fit-content !important;
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1) !important;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.3) !important;
+      }
+      .bento-component .card-big:hover .secondary-button {
+        background-color: var(--brise-cream) !important;
+        transform: translateX(3px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.45) !important;
+      }
+      .bento-component .card-big .secondary-button .text-size-small {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 0.74rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        color: var(--brise-teal-deep) !important;
+      }
+      .bento-component .card-big .secondary-button .arrow-wrapper img {
+        filter: brightness(0) saturate(100%) invert(20%) sepia(48%) saturate(1100%) hue-rotate(143deg) brightness(96%);
+      }
+
+      /* BENTO + FAQ spacing */
+      .bento-component { gap: 0.75rem !important; }
+      .bento-component .bento-row { gap: 0.75rem !important; margin-bottom: 0.75rem !important; }
+      .bento-component .bento-row:last-child { margin-bottom: 0 !important; }
+      .bento-wrapper .bento-component { margin-bottom: 0.75rem !important; }
+      .bento-wrapper { padding-bottom: 6rem !important; }
+      .faq-wrapper {
+        padding-top: 5rem !important;
+        position: relative;
+        background: linear-gradient(180deg, transparent, rgba(15,118,110,0.025) 30%, transparent);
+      }
+      .faq-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: var(--brise-teal);
+        opacity: 0.3;
+      }
+
+      /* FAQ Design */
+      .faq-heading { text-align: center !important; margin-bottom: 3rem !important; }
+      .faq-heading .heading-5 {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 2.4rem !important;
+        font-weight: 600 !important;
+        letter-spacing: -0.025em !important;
+        color: #0f0f0f !important;
+      }
+      .faq-heading .heading-5::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: var(--brise-teal);
+        margin: 1rem auto 0;
+        opacity: 0.7;
+      }
+      .faq-component { max-width: 760px !important; margin: 0 auto !important; }
+      .faq-list { display: flex !important; flex-direction: column !important; gap: 0.75rem !important; }
+      .faq-hover {
+        background: rgba(255,255,255,0.6) !important;
+        border: 1px solid rgba(15,118,110,0.1) !important;
+        border-radius: 14px !important;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1) !important;
+        backdrop-filter: blur(8px);
+      }
+      .faq-hover:hover {
+        border-color: rgba(15,118,110,0.25) !important;
+        background: rgba(255,255,255,0.9) !important;
+        box-shadow: 0 6px 22px rgba(15,118,110,0.08);
+        transform: translateY(-1px);
+      }
+      .faq-item { background: transparent !important; }
+      .faq-top {
+        padding: 1.25rem 1.5rem !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 1rem !important;
+      }
+      .faq-title-wrapper > div {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        color: #1a1a1a !important;
+        line-height: 1.4 !important;
+        letter-spacing: -0.005em !important;
+      }
+      .faq-action-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        background: rgba(15,118,110,0.08) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1) !important;
+        flex-shrink: 0;
+      }
+      .faq-hover:hover .faq-action-wrapper {
+        background: var(--brise-teal) !important;
+        transform: rotate(90deg);
+      }
+      .faq-action-wrapper .arrow { width: 14px !important; height: 14px !important; transition: filter 0.3s ease !important; }
+      .faq-hover:hover .faq-action-wrapper .arrow { filter: brightness(0) invert(1) !important; }
+      .faq-bottom-content p {
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 0.92rem !important;
+        font-weight: 400 !important;
+        line-height: 1.6 !important;
+        color: rgba(15,15,15,0.75) !important;
+        margin: 0 !important;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 991px) {
+        html { scroll-padding-top: 90px; }
+        .bento-component .card-big .card-big-content { max-width: 75% !important; padding: 1.5rem 1.75rem !important; }
+        .bento-component .card-big .heading-6 { font-size: 1.05rem !important; }
+        .bento-component .card-big::before { background: linear-gradient(100deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.25) 70%, transparent 100%); }
+      }
+      @media (max-width: 767px) {
+        html { scroll-padding-top: 80px; }
+        .brand::before { font-size: 1.2rem; letter-spacing: 0.15em; }
+        .button-navbar { padding: 8px 16px !important; }
+        .button-navbar .text-size-small::after { font-size: 0.78rem; letter-spacing: 0.16em; }
+        .bento-component .card-big .card-big-content { max-width: 92% !important; padding: 1.25rem 1.5rem !important; gap: 1rem !important; }
+        .bento-component .card-big .heading-6 { font-size: 0.95rem !important; line-height: 1.4 !important; }
+        .bento-component .card-big::before { background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 100%); }
+        .faq-heading .heading-5 { font-size: 1.8rem !important; }
+        .faq-top { padding: 1rem 1.25rem !important; }
+        .faq-title-wrapper > div { font-size: 0.92rem !important; }
+        .faq-action-wrapper { width: 28px !important; height: 28px !important; }
+        .bento-wrapper { padding-bottom: 4rem !important; }
+        .faq-wrapper { padding-top: 3.5rem !important; }
+      }
+      @media (max-width: 479px) {
+        .brand::before { font-size: 1.05rem; }
+        .bento-component .card-big .card-big-content { max-width: 95% !important; padding: 1rem 1.25rem !important; }
+        .bento-component .card-big .heading-6 { font-size: 0.88rem !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+
+    <!-- jQuery + Webflow JS for interactions (hover effects, lightbox, etc.) -->
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript"></script>
+    <script src="/js/webflow.js" type="text/javascript"></script>
+
+    <!-- BRISE custom JS: anchor wiring + smooth scroll -->
+    <script is:inline>
+      (function() {
+        function initBrise() {
+          // 1. Copyright cleanup
+          const copyP = document.querySelector('.credits-wrapper p:first-child');
+          if (copyP && copyP.textContent.trim() === 'Copyright ©') {
+            copyP.textContent = '©';
+          }
+          // 2. ADD anchor IDs
+          const faqWrap = document.querySelector('.faq-wrapper');
+          if (faqWrap && !faqWrap.id) { faqWrap.id = 'faq'; }
+          const productsSection = document.querySelector('.products-wrapper');
+          if (productsSection && !productsSection.id) { productsSection.id = 'products'; }
+          const wtbSection = document.querySelector('.sb-wtb-section');
+          if (wtbSection && !wtbSection.id) { wtbSection.id = 'where-to-buy'; }
+          // 3. NAV LINK ANCHOR redirects
+          document.querySelectorAll('a.nav-link[href="/products"], a.footer-link[href="/products"]').forEach(function(link) {
+            link.setAttribute('href', '#products');
+          });
+          document.querySelectorAll('a.nav-link[href="/faq"], a.footer-link[href="/faq"]').forEach(function(link) {
+            link.setAttribute('href', '#faq');
+          });
+          // 4. BUY button → #where-to-buy
+          const buyBtn = document.querySelector('.button-navbar');
+          if (buyBtn) {
+            buyBtn.setAttribute('href', '#where-to-buy');
+            buyBtn.removeAttribute('target');
+            buyBtn.removeAttribute('rel');
+          }
+          // 5. Brand BRISE logo → scroll top
+          const brandLink = document.querySelector('a.brand');
+          if (brandLink) {
+            brandLink.setAttribute('href', '#');
+            brandLink.removeAttribute('aria-current');
+            brandLink.addEventListener('click', function(e) {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+          }
+          // 6. Smooth scroll with navbar offset
+          document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+              const targetId = this.getAttribute('href');
+              if (targetId === '#' || targetId.length < 2) return;
+              const target = document.querySelector(targetId);
+              if (target) {
+                e.preventDefault();
+                const navbarHeight = window.innerWidth >= 992 ? 110 : (window.innerWidth >= 768 ? 90 : 80);
+                const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                window.scrollTo({ top: targetTop, behavior: 'smooth' });
+              }
+            });
+          });
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initBrise);
+        } else {
+          initBrise();
+        }
+      })();
+    </script>
+  </body>
+</html>
