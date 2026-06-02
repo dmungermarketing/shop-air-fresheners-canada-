@@ -3,4 +3,4 @@ Allow: /
 Disallow: /404
 Disallow: /admin/
 
-Sitemap: https://shopairfresheners.ca/sitemap-index.xml
+Sitemap: https://www.shopairfresheners.ca/sitemap-index.xml

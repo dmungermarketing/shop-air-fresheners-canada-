@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // Production domain — used for canonical URLs, sitemap, OG tags.
 export default defineConfig({
-  site: 'https://shopairfresheners.ca',
+  site: 'https://www.shopairfresheners.ca',
   output: 'static',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
