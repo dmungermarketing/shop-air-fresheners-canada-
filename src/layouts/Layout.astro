@@ -247,6 +247,8 @@ const breadcrumbSchema = {
       }
 
       html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+      /* Contain full-bleed sections (margin:-50vw hack) so they never create horizontal scroll — mobile-first */
+      html, body { overflow-x: clip; max-width: 100%; }
 
       /* NAVBAR STICKY — floating with breathing room at top */
       body > .navbar,
@@ -671,6 +673,77 @@ const breadcrumbSchema = {
       @media (max-width: 600px) {
         .world-header { flex-direction: column; gap: 0.5rem; }
         .world .sb-uses-grid { grid-template-columns: 1fr; }
+      }
+
+      /* How-to as a full-width 3-step row */
+      .world-howto--row { margin-top: 3rem; }
+      .how-steps--row {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      }
+      .how-steps--row li { align-items: flex-start; }
+      @media (max-width: 760px) {
+        .how-steps--row { grid-template-columns: 1fr; gap: 1rem; }
+      }
+
+      /* RIVIAN-STYLE CAROUSEL (mobile-first horizontal scroll-snap) */
+      .sb-carousel { margin-top: 3.25rem; }
+      .sb-carousel-head {
+        display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      .sb-carousel-title {
+        font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: -0.02em;
+        font-size: clamp(1.2rem, 2.4vw, 1.6rem); line-height: 1.2; color: #18211f;
+        margin: 0; max-width: 30ch;
+      }
+      .sb-carousel-nav { display: flex; gap: 0.5rem; flex: 0 0 auto; }
+      .sb-carousel-btn {
+        width: 44px; height: 44px; border-radius: 50%;
+        border: 1px solid var(--w-accent, #0F766E);
+        background: transparent; color: var(--w-accent, #0F766E);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: all 0.25s ease;
+      }
+      .sb-carousel-btn svg { width: 20px; height: 20px; }
+      .sb-carousel-btn:hover:not(:disabled) { background: var(--w-accent, #0F766E); color: #fff; }
+      .sb-carousel-btn:disabled { opacity: 0.3; cursor: default; }
+
+      .sb-carousel-track {
+        display: flex; gap: 1rem;
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0.25rem 0 1rem;
+        scroll-padding-left: 0;
+      }
+      .sb-carousel-track::-webkit-scrollbar { display: none; }
+      .sb-slide {
+        position: relative; flex: 0 0 auto;
+        width: 78%; max-width: 300px; aspect-ratio: 3 / 4;
+        border-radius: 20px; overflow: hidden;
+        scroll-snap-align: start; text-decoration: none;
+        background: #ddd;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+        transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+      }
+      .sb-slide:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,0.2); }
+      .sb-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .sb-slide-cap {
+        position: absolute; left: 0; right: 0; bottom: 0;
+        padding: 1.5rem 1.25rem 1.1rem;
+        background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+        display: flex; flex-direction: column; gap: 0.15rem;
+      }
+      .sb-slide-kicker {
+        font-family: "Montserrat", sans-serif; font-size: 0.62rem; font-weight: 700;
+        letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.8);
+      }
+      .sb-slide-title {
+        font-family: "Montserrat", sans-serif; font-size: 1.15rem; font-weight: 800;
+        letter-spacing: -0.01em; color: #fff; line-height: 1.1;
+      }
+      @media (min-width: 768px) {
+        .sb-slide { width: 320px; max-width: 320px; }
       }
 
       /* BRISE WORDMARK navbar */

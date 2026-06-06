@@ -12,8 +12,8 @@ const oopsiePoopsie = [
   { name: 'Berry Fresh', notes: 'Winterberry · pine', image: '/images/products/op-berry-fresh.webp' },
   { name: 'Morning Shower', notes: 'Morning dew · rose · baby powder', image: '/images/products/op-morning-shower.webp' },
   { name: 'Flower Citrus', notes: 'Lemongrass · orange blossom · eucalyptus', image: '/images/products/op-flower-citrus.webp' },
-  { name: 'Summer Sea', notes: 'Ocean breeze · sea salt · fresh aquatic', image: null },
-  { name: 'Wild Mint', notes: 'Wild peppermint · spearmint · cooling herbs', image: null },
+  { name: 'Summer Sea', notes: 'Fleur de sel · fig · sandalwood', image: '/images/products/op-summer-sea.webp' },
+  { name: 'Wild Mint', notes: 'Mint · basil · pine', image: '/images/products/op-wild-mint.webp' },
 ];
 
 // AROMAR+ Spa Room Mist — water-based 8 oz room & fabric mists (safe on linen, furniture, clothing)
@@ -173,36 +173,53 @@ const faqs = [
         </div>
       </div>
 
-      <!-- How to use + Where to use -->
-      <div class="world-grid">
-        <div class="world-howto">
-          <div class="world-subhead">How to use</div>
-          <ol class="how-steps">
-            <li><span class="how-step-n">1</span><div><h4>Spray before you go</h4><p>3–5 sprays directly onto the toilet bowl water before you sit down.</p></div></li>
-            <li><span class="how-step-n">2</span><div><h4>Let the oil do the work</h4><p>It floats and forms an invisible barrier that traps odors beneath the surface.</p></div></li>
-            <li><span class="how-step-n">3</span><div><h4>Flush as normal</h4><p>No lingering smell, no spray cloud. Pocket-sized, so take it anywhere.</p></div></li>
-          </ol>
-        </div>
-        <div class="world-uses">
-          <div class="world-subhead">Where to use</div>
-          <div class="sb-uses-grid">
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
-              <h4>Home Bathroom</h4><p>The daily before-you-go ritual by every toilet at home.</p>
-            </div>
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 7h2M9 11h2M9 15h2M13 7h2M13 11h2M13 15h2"/></svg></div>
-              <h4>Public Restrooms</h4><p>Pocket-sized &amp; discreet for work, school and the gym.</p>
-            </div>
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg></div>
-              <h4>Travel &amp; Hotels</h4><p>Slips into any bag for hotels, Airbnbs and road trips.</p>
-            </div>
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-8.5A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6.5C19 16.65 12 21 12 21z"/></svg></div>
-              <h4>Guests &amp; Date Night</h4><p>No more awkward moments when company is over.</p>
-            </div>
+      <!-- How to use (full-width 3-step row) -->
+      <div class="world-howto world-howto--row">
+        <div class="world-subhead">How to use</div>
+        <ol class="how-steps how-steps--row">
+          <li><span class="how-step-n">1</span><div><h4>Spray before you go</h4><p>3–5 sprays directly onto the toilet bowl water before you sit down.</p></div></li>
+          <li><span class="how-step-n">2</span><div><h4>Let the oil do the work</h4><p>It floats and forms an invisible barrier that traps odors beneath the surface.</p></div></li>
+          <li><span class="how-step-n">3</span><div><h4>Flush as normal</h4><p>No lingering smell, no spray cloud. Pocket-sized, take it anywhere.</p></div></li>
+        </ol>
+      </div>
+
+      <!-- Lifestyle carousel (Rivian-style) -->
+      <div class="sb-carousel" data-carousel>
+        <div class="sb-carousel-head">
+          <div>
+            <div class="world-subhead">Why you'll love it</div>
+            <h3 class="sb-carousel-title">Get to know Oopsie Poopsie — the anti-awkward toilet spray.</h3>
           </div>
+          <div class="sb-carousel-nav">
+            <button type="button" class="sb-carousel-btn" data-dir="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button type="button" class="sb-carousel-btn" data-dir="next" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+        <div class="sb-carousel-track" data-track>
+          <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-slide">
+            <img src="/images/lifestyle/cr-how.webp" loading="lazy" alt="How Oopsie Poopsie works — spray, poo, flush" />
+            <div class="sb-slide-cap"><span class="sb-slide-kicker">How it works</span><span class="sb-slide-title">Spray. Poo. Flush.</span></div>
+          </a>
+          <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-slide">
+            <img src="/images/lifestyle/cr-sprays.webp" loading="lazy" alt="Up to 300 sprays per Oopsie Poopsie bottle" />
+            <div class="sb-slide-cap"><span class="sb-slide-kicker">Long-lasting</span><span class="sb-slide-title">Up to 300 sprays</span></div>
+          </a>
+          <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-slide">
+            <img src="/images/lifestyle/cr-usa.webp" loading="lazy" alt="Oopsie Poopsie is made in the USA with essential oils, cruelty-free and aerosol-free" />
+            <div class="sb-slide-cap"><span class="sb-slide-kicker">Quality</span><span class="sb-slide-title">Made in the USA</span></div>
+          </a>
+          <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-slide">
+            <img src="/images/lifestyle/cr-berry.webp" loading="lazy" alt="Oopsie Poopsie Berry Fresh — winterberry and pine toilet spray" />
+            <div class="sb-slide-cap"><span class="sb-slide-kicker">Scent</span><span class="sb-slide-title">Berry Fresh</span></div>
+          </a>
+          <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-slide">
+            <img src="/images/lifestyle/cr-lavender.webp" loading="lazy" alt="Oopsie Poopsie Lavender Escape — lavender, honey and pepper toilet spray" />
+            <div class="sb-slide-cap"><span class="sb-slide-kicker">Scent</span><span class="sb-slide-title">Lavender Escape</span></div>
+          </a>
+          <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-slide">
+            <img src="/images/lifestyle/cr-sage.webp" loading="lazy" alt="Oopsie Poopsie Mediterranean Sage — fresh sage and sea salt toilet spray" />
+            <div class="sb-slide-cap"><span class="sb-slide-kicker">Scent</span><span class="sb-slide-title">Mediterranean Sage</span></div>
+          </a>
         </div>
       </div>
     </div>
@@ -440,6 +457,31 @@ const faqs = [
           }, { rootMargin: '-45% 0px -45% 0px' });
           sections.forEach(function (s) { secObs.observe(s); });
         }
+
+        // Carousels: prev/next buttons scroll the track by one slide
+        document.querySelectorAll('[data-carousel]').forEach(function (car) {
+          var track = car.querySelector('[data-track]');
+          if (!track) return;
+          function step() {
+            var slide = track.querySelector('.sb-slide');
+            var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '16') || 16;
+            return slide ? slide.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+          }
+          car.querySelectorAll('[data-dir]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              track.scrollBy({ left: (btn.getAttribute('data-dir') === 'next' ? 1 : -1) * step(), behavior: 'smooth' });
+            });
+          });
+          function updateBtns() {
+            var prev = car.querySelector('[data-dir="prev"]');
+            var next = car.querySelector('[data-dir="next"]');
+            var max = track.scrollWidth - track.clientWidth - 2;
+            if (prev) prev.disabled = track.scrollLeft <= 2;
+            if (next) next.disabled = track.scrollLeft >= max;
+          }
+          track.addEventListener('scroll', updateBtns, { passive: true });
+          updateBtns();
+        });
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initWorlds);
