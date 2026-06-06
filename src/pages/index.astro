@@ -4,38 +4,52 @@ import Layout from '../layouts/Layout.astro';
 // PLACEHOLDER — replace with your real Amazon storefront URL before publishing
 const AMAZON_URL = 'https://www.amazon.ca/REPLACE-WITH-YOUR-STOREFRONT';
 
-const products = [
-  { name: 'Black Cherry', image: '/images/black-cherry.webp', bestSeller: true },
-  { name: 'Mango Tropical', image: '/images/mango-tropical.webp', bestSeller: true },
-  { name: 'Hawaiian Blue', image: '/images/hawaiian-blue.webp', bestSeller: true },
-  { name: 'Clean Cotton', image: '/images/clean-cotton.webp', bestSeller: true },
-  { name: 'Vanilla', image: '/images/vanilla-v2.webp', bestSeller: false },
-  { name: 'Green Bomb', image: '/images/green-bomb.webp', bestSeller: false },
-  { name: 'Juicy Juice', image: '/images/juicy-juice-v2.webp', bestSeller: false },
-  { name: 'Tangerine Blast', image: '/images/tangerine-blast-v2.webp', bestSeller: false },
-  { name: 'New Car', image: '/images/new-car-v2.webp', bestSeller: false },
+// Oopsie Poopsie — oil-based PRE-POOP toilet sprays (spray into the bowl before you go)
+const oopsiePoopsie = [
+  { name: 'Lemon Bergamot', notes: 'Lemon zest · bergamot · citrus', image: '/images/products/op-lemon-bergamot.webp' },
+  { name: 'Lavender Escape', notes: 'Lavender · honey · pepper', image: '/images/products/op-lavender-escape.webp' },
+  { name: 'Mediterranean Sage', notes: 'Fresh sage · sea salt', image: '/images/products/op-mediterranean-sage.webp' },
+  { name: 'Berry Fresh', notes: 'Winterberry · pine', image: '/images/products/op-berry-fresh.webp' },
+  { name: 'Morning Shower', notes: 'Morning dew · rose · baby powder', image: '/images/products/op-morning-shower.webp' },
+  { name: 'Flower Citrus', notes: 'Lemongrass · orange blossom · eucalyptus', image: '/images/products/op-flower-citrus.webp' },
+  { name: 'Summer Sea', notes: 'Ocean breeze · sea salt · fresh aquatic', image: null },
+  { name: 'Wild Mint', notes: 'Wild peppermint · spearmint · cooling herbs', image: null },
+];
+
+// AROMAR+ Spa Room Mist — water-based 8 oz room & fabric mists (safe on linen, furniture, clothing)
+const roomMists = [
+  { name: 'Baby Powder', notes: 'Soft, clean, comforting powder', image: '/images/products/rm-baby-powder.webp' },
+  { name: 'Channel #5*', notes: 'Classic French perfumery inspired', image: '/images/products/rm-channel.webp', star: true },
+  { name: 'Eternal Life', notes: 'Timeless, serene, tranquil', image: '/images/products/rm-eternal-life.webp' },
+  { name: 'Eucalyptus', notes: 'Invigorating, fresh, rejuvenating', image: '/images/products/rm-eucalyptus.webp' },
+  { name: 'Honey Rose', notes: 'Honeyed warmth · delicate rose', image: '/images/products/rm-honey-rose.webp' },
+  { name: 'Midnight Lover', notes: 'Seductive, mysterious, romantic', image: '/images/products/rm-midnight-lover.webp' },
+  { name: 'Mulberry', notes: 'Sweet, fruity, ripe mulberry', image: '/images/products/rm-mulberry.webp' },
+  { name: 'Sea Breeze', notes: 'Fresh coastal ocean air', image: '/images/products/rm-sea-breeze.webp' },
+  { name: 'White Gardenia', notes: 'Delicate white florals', image: '/images/products/rm-white-gardenia.webp' },
+  { name: 'Sandalwood Forest', notes: 'Warm, woody, grounding', image: '/images/products/rm-sandalwood-forest.webp' },
 ];
 
 const faqs = [
-  { q: 'Is Scent Bomb really made in the USA?', a: 'Yes. Scent Bomb is made in the USA from 100% pure fragrance oil. We are an independent Canadian seller making the full lineup available to Canadian customers with local shipping.' },
-  { q: 'How fast is shipping within Canada?', a: 'Orders ship quickly from within Canada — no slow cross-border wait and no customs fees. Delivery times and any options are shown at checkout.' },
-  { q: 'Where can I buy Scent Bomb in Canada?', a: 'Right here. Click any "Shop Scent Bomb" button and you will be taken to our storefront to complete your order, with fast shipping anywhere in Canada.' },
-  { q: 'Can Scent Bomb help with smelly sports equipment?', a: 'It is great for keeping gym bags, lockers and shoes fresh between uses — Clean Cotton is the favourite for this. For heavily used gear like hockey or football pads, use it to manage odor day-to-day, alongside an occasional deep clean.' },
-  { q: 'Will Scent Bomb leave an oily residue?', a: 'Only if it is used incorrectly. Sprayed onto fabric, mats, cotton balls or the inside of containers — as intended — there is no issue. Avoid spraying it directly onto hard floors or walkable surfaces.' },
-  { q: 'Is Scent Bomb good for travel?', a: 'Yes — it is one of the most travel-friendly air fresheners out there. The 1 oz bottle is small enough for a pocket, purse, glove box or carry-on, so you can freshen a hotel room, a rental car or a friend’s place in seconds.' },
-  { q: 'How much does one bottle cover?', a: 'A couple of sprays handle a car interior or a small bathroom. For larger rooms, a spray or two in each corner does it. The 1 oz bottle lasts a long time in a single space; the 8 oz XL covers a whole house and refills your smaller bottles.' },
-  { q: 'Does Scent Bomb eliminate odors or just cover them?', a: 'Because it is so concentrated, Scent Bomb overpowers an odor rather than faintly layering over it — especially when you apply it at the source of the smell. For best results, spray where the odor is actually coming from.' },
-  { q: 'How do I use Scent Bomb spray for the best results?', a: 'Hold the bottle 1–2 inches from a surface and apply 1–2 sprays — onto a floor mat, under a seat, inside a bin, or onto a cotton ball. Don’t spray it into the air: it’s pure oil and can leave a slippery film on hard surfaces. A little goes a long way.' },
-  { q: 'How long does Scent Bomb last?', a: 'Because it is concentrated fragrance oil, a single application typically keeps a small space fresh all day and often into the next. A cotton ball sprayed once can hold its scent for several days.' },
-  { q: 'Which Scent Bomb fragrance should I choose?', a: 'It depends on the space. Black Cherry and Mango Tropical are bold and popular for cars. Vanilla is the warm, safe choice for shared spaces. Clean Cotton is the most neutral and versatile — ideal for gym bags, bathrooms and offices. Green Bomb is the pick for a crisp, masculine scent.' },
-  { q: 'Is Scent Bomb safe to use in my car?', a: 'Yes — apply it to the floor mat, under a seat, or onto a cotton ball. Avoid the dashboard, pedals and steering wheel: the oil can be slippery on hard surfaces you touch or step on.' },
-  { q: 'Can I use Scent Bomb in the toilet?', a: 'Yes, and it works well. Spray 3–4 sprays directly onto the water in the bowl. The oil floats and forms a thin barrier across the surface that helps trap odors before they rise into the room — keeping the bathroom fresh before and after use.' },
+  { q: 'How does Oopsie Poopsie pre-poop toilet spray work?', a: 'Spray 3–5 times directly into the toilet bowl water BEFORE you go. The oil-based formula floats on the water surface and forms an invisible barrier that traps odors before they rise into the room — so the bathroom stays fresh and no one ever knows.' },
+  { q: 'What is the difference between Oopsie Poopsie and AROMAR+ Spa Room Mist?', a: 'Oopsie Poopsie is an oil-based pre-poop toilet spray — designed for the toilet bowl, sprayed onto the water before use. AROMAR+ Spa Room Mist is water-based with fragrance oil — a room and fabric mist for freshening rooms, linen, pillows, furniture and clothing. The room mist will not stain fabric.' },
+  { q: 'Can I use AROMAR+ Spa Room Mist on fabric, linen and furniture?', a: 'Yes. AROMAR+ Spa Room Mist is water-based and designed for fabric. Spray on pillows, mattresses, couches, curtains, linen, clothing, gym bags and pet beds. The fragrance lasts and there is no oily residue or staining (we still recommend testing a hidden spot first).' },
+  { q: 'How many sprays of Oopsie Poopsie should I use?', a: 'For best results, 3–5 sprays directly into the toilet bowl water before sitting down. The oil forms a thin floating layer that traps odors. A little goes a long way — one bottle lasts hundreds of uses.' },
+  { q: 'Which Oopsie Poopsie fragrance should I choose?', a: 'Popular picks: Lemon Bergamot (bright citrus), Lavender Escape (calming, classic), Mediterranean Sage (earthy herbal), Berry Fresh (sweet fruity), Morning Shower (clean rose & powder), and Flower Citrus (uplifting floral). All 8 are made with essential oils — pick what suits your home best.' },
+  { q: 'Will AROMAR+ Spa Room Mist stain my couch or pillows?', a: 'No. AROMAR+ Spa Room Mist is water-based — formulated to be safe on most fabrics including couches, pillows, mattresses and clothing. We recommend testing on a hidden area first. It dries clean with no oily residue.' },
+  { q: 'How long does the Spa Room Mist fragrance last?', a: 'A few sprays freshen a room for several hours. On fabric and linen the scent typically holds 1–3 days depending on airflow and use. The 8 oz bottle lasts a long time for everyday use.' },
+  { q: 'Where can I buy Oopsie Poopsie and AROMAR room mists in Canada?', a: 'Right here. Click any "Shop on Amazon" button and you will be taken to our Amazon Canada storefront. We are an independent Canadian retailer of AROMAR fragrance products, with fast shipping anywhere in Canada.' },
+  { q: 'How fast is shipping within Canada?', a: 'Orders ship quickly from within Canada through Amazon — no slow cross-border wait and no surprise customs fees. Delivery is typically 2–7 business days; exact options are shown at checkout.' },
+  { q: 'Are Oopsie Poopsie and AROMAR+ made in the USA?', a: 'Yes. Both product lines are manufactured by AROMAR in the USA from premium fragrance oils. We are an independent Canadian retailer making them available to Canadian customers with local shipping.' },
+  { q: 'Can I use Oopsie Poopsie in a public restroom or rental?', a: 'Absolutely. The pocket-sized bottle slips into any bag or purse — discreetly spray into any toilet bowl before use to keep public restrooms, rentals and hotel rooms fresh. Poop anywhere with confidence.' },
+  { q: 'Is AROMAR+ Spa Room Mist safe around pets?', a: 'AROMAR+ Spa Room Mist is generally safe when applied to surfaces or fabric (not directly on the pet). Let areas dry before pets contact them, and keep bottles out of reach of pets and children.' },
+  { q: 'What is the Channel #5* inspired Spa Room Mist?', a: 'Our Channel #5* (type) Spa Room Mist is inspired by classic French perfumery — crafted to evoke the sophistication reminiscent of iconic luxury fragrances. It is an independent AROMAR+ fragrance and is not affiliated with, or endorsed by, any luxury brand.' },
 ];
 ---
 
 <Layout
-  title="Scent Bomb Air Freshener Canada | Odor Gone in 5 Seconds"
-  description="Shop Scent Bomb concentrated air fresheners in Canada. Eliminate odors in your car, bathroom and home in 5 seconds flat. Fast Canadian shipping, easy returns."
+  title="Air Freshener Canada | Room Spray, Linen Mist & Toilet Spray"
+  description="Shop natural air fresheners in Canada — AROMAR+ room sprays & linen mists for bedrooms, fabric and pillows, plus Oopsie Poopsie before-you-go toilet sprays. Essential-oil based, made in USA, fast Canadian shipping."
 >
   <!-- NAVBAR -->
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
@@ -51,7 +65,8 @@ const faqs = [
             </div>
             <nav role="navigation" class="nav-menu w-nav-menu">
               <a href="/" class="nav-link w-inline-block"><div>Home</div></a>
-              <a href="#products" class="nav-link w-inline-block"><div>Products</div></a>
+              <a href="#oopsie" class="nav-link w-inline-block"><div>Toilet Sprays</div></a>
+              <a href="#room-mist" class="nav-link w-inline-block"><div>Room Mists</div></a>
               <a href="#faq" class="nav-link w-inline-block"><div>FAQ</div></a>
               <div class="button-border">
                 <a href="#where-to-buy" class="button-navbar margin-left w-inline-block">
@@ -66,405 +81,221 @@ const faqs = [
     <div class="overlay-navbar"></div>
   </div>
 
-  <!-- HERO -->
-  <section>
-    <div class="hero-wrapper-2">
-      <div class="hero-heading-2">
-        <h1 class="heading-7 text-weight-light">Scent Bomb Air Fresheners in Canada</h1>
-        <h2 class="hero-h2">Concentrated Anti-Odor Sprays for Cars, Bathrooms &amp; Toilets</h2>
-        <a href="#products" class="sb-scents-link">Shop the 9 scents ↓</a>
-      </div>
-      <a href="#products" class="button-hero w-inline-block" aria-label="Explore all 9 scents">
-        <div class="button-image"><img loading="lazy" src="/images/CIRCLE.svg" alt="" /></div>
-        <div class="circular-text">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <path id="hero-circle-path" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0" />
-            </defs>
-            <text>
-              <textPath href="#hero-circle-path" textLength="490" lengthAdjust="spacingAndGlyphs">SHOP THE 9 SCENTS · EXPLORE NOW ·</textPath>
-            </text>
-          </svg>
-        </div>
-        <div class="button-arrow">
-          <div class="hero-arrow-wrapper">
-            <img loading="lazy" alt="" src="/images/Button-Arrow.svg" class="arrow" />
-            <img loading="lazy" alt="" src="/images/Button-Arrow.svg" class="arrow" />
-          </div>
-        </div>
-      </a>
-      <div class="hero-grid-2"></div>
-      <div class="hero-background-2">
-        <picture>
-          <source
-            media="(max-width: 767px)"
-            srcset="/images/hero-mobile.webp"
-          />
-          <img
-            src="/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2.webp"
-            loading="eager"
-            fetchpriority="high"
-            sizes="100vw"
-            srcset="/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2-p-500.webp 500w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2-p-800.webp 800w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2-p-1080.webp 1080w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2-p-1600.webp 1600w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers---Anti-Odor-Sprays-2.webp 1792w"
-            alt="Scent Bomb air freshener sprays — all 9 fragrances available in Canada"
-            class="hero-image"
-          />
-        </picture>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY IT'S BETTER -->
-  <section class="wis-section">
-    <section class="uui-section_layout18">
-      <div class="uui-page-padding">
-        <div class="uui-container-large">
-          <div class="uui-padding-vertical-xhuge">
-            <div class="w-layout-grid uui-layout18_component">
-              <div class="uui-layout18_content">
-                <div class="w-layout-grid uui-layout18_item-list">
-                  <div class="uui-layout18_item">
-                    <div class="uui-layout18_item-icon-wrapper">
-                      <div class="uui-icon-featured-outline-large">
-                        <div class="uui-icon-1x1-xsmall w-embed">
-                          <!-- DROPLET icon — represents pure fragrance oil -->
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M12 2.5c-3.5 4.5-7 8.5-7 13a7 7 0 0 0 14 0c0-4.5-3.5-8.5-7-13z"/>
-                            <path d="M8.5 15.5c0 1.8 1.4 3.2 3.2 3.2" opacity="0.45"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="uui-layout18_item-text-wrapper">
-                      <h3 class="uui-heading-xsmall">100% pure fragrance oil</h3>
-                      <div class="uui-space-xxsmall"></div>
-                      <div class="uui-text-size-medium">Most air fresheners are mostly water, alcohol and propellant. Scent Bomb is 100% pure concentrated fragrance oil — a single bottle goes far, and the scent lasts all day, often into the next.</div>
-                    </div>
-                  </div>
-                  <div class="uui-layout18_item">
-                    <div class="uui-layout18_item-icon-wrapper">
-                      <div class="uui-icon-featured-outline-large">
-                        <div class="uui-icon-1x1-xsmall w-embed">
-                          <!-- LIGHTNING BOLT icon — represents instant 5-second action -->
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M13 2 L4 14 h7 l-1 8 10-12 h-7 l1-8 z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="uui-layout18_item-text-wrapper">
-                      <h3 class="uui-heading-xsmall">Eliminates odors in 5 seconds</h3>
-                      <div class="uui-space-xxsmall"></div>
-                      <div class="uui-text-size-medium">One or two sprays and the smell is gone — not floral-scented over the top of it, actually gone. The most powerful air freshener spray you’ll find in a 1 oz bottle.</div>
-                    </div>
-                  </div>
-                  <div class="uui-layout18_item">
-                    <div class="uui-layout18_item-icon-wrapper">
-                      <div class="uui-icon-featured-outline-large">
-                        <div class="uui-icon-1x1-xsmall w-embed">
-                          <!-- SUITCASE icon — represents pocket-sized + travel-friendly -->
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <rect x="3" y="7" width="18" height="13" rx="2"/>
-                            <path d="M8 7 V5 a2 2 0 0 1 2-2 h4 a2 2 0 0 1 2 2 v2"/>
-                            <line x1="3" y1="13" x2="21" y2="13"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="uui-layout18_item-text-wrapper">
-                      <h3 class="uui-heading-xsmall">Pocket-sized, goes anywhere</h3>
-                      <div class="uui-space-xxsmall"></div>
-                      <div class="uui-text-size-medium">The 1 oz bottle slips into a pocket, glove box or carry-on. Keep one in the car, one in your bag — a five-second odor fix is always on hand wherever you are.</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="uui-button-row is-reverse-mobile-landscape">
-                  <div class="uui-button-wrapper max-width-full-mobile-landscape">
-                    <a href="#bento" class="uui-button-secondary-gray w-inline-block"><div>How it works</div></a>
-                  </div>
-                  <div class="uui-button-wrapper max-width-full-mobile-landscape">
-                    <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="uui-button w-inline-block"><div>Shop on Amazon</div></a>
-                  </div>
-                </div>
-              </div>
-              <div class="uui-layout18_lightbox">
-                <img
-                  src="/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp"
-                  loading="lazy"
-                  sizes="100vw"
-                  srcset="/images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers-p-500.webp 500w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers-p-800.webp 800w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers-p-1080.webp 1080w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers-p-1600.webp 1600w, /images/Scent-Bomb-Air-Freshener-Sprays---Best-Sellers.webp 1791w"
-                  alt="Scent Bomb concentrated air freshener spray lineup — 9 fragrances in 1 oz cobalt blue bottles, best sellers"
-                  class="uui-layout18_lightbox-image"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <!-- 9 SCENTS HEADER + PRODUCTS -->
-  <section>
-    <div class="padding-global">
-      <div class="w-layout-blockcontainer container medium w-container">
-        <div id="bento" class="bento-wrapper">
-          <div class="bento-header">
-            <div class="heading-component">
-              <div class="max-width-80ch">
-                <div class="heading-component">
-                  <div class="max-width-80ch">
-                    <div class="heading-4">9 Scent Bomb Fragrances Available in Canada</div>
-                  </div>
-                  <div class="max-width-45ch">
-                    <div>From sweet Black Cherry to crisp Hawaiian Blue — 9 concentrated fragrances in a 1 oz bottle that lasts for weeks. One spray, instant transformation.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="products-wrapper" id="products">
-          <div class="products-header">
-            <div class="products-heading">
-              <div class="flex-horizontal">
-                <div class="icon-wrapper"><img src="/images/Cross.svg" loading="lazy" alt="Icon" /></div>
-                <div class="text-size-large text-weight-medium caps">Our products</div>
-              </div>
-              <div class="opacity-60"><div>All collection</div></div>
-            </div>
-            <div class="button-wrapper">
-              <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="black-button w-inline-block">
-                <div class="text-weight-medium caps">Shop Now</div>
-              </a>
-            </div>
-          </div>
-          <div class="products-card-wrapper">
-            <div role="list" class="products-cards">
-              {products.map((p) => (
-                <div role="listitem">
-                  <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="product-link w-inline-block">
-                    <div class="product-card-image">
-                      <img src={p.image} loading="lazy" alt={`Scent Bomb ${p.name} — concentrated air freshener spray`} class="image" />
-                      {p.bestSeller && <div class="best-seller-badge">Best Seller</div>}
-                    </div>
-                    <div class="product-card-info">
-                      <div class="info">
-                        <div class="text-size-small text-weight-medium caps">{p.name}</div>
-                      </div>
-                      <div class="buy-now-button">Buy Now →</div>
-                    </div>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW TO USE -->
-  <section class="htu-section">
-    <div class="htu-wrap">
-      <div class="htu-head">
-        <div class="htu-eyebrow"><span class="htu-dot"></span>How to use</div>
-        <h2 class="htu-heading">How to use Scent Bomb air freshener for best results</h2>
-        <p class="htu-sub">Scent Bomb is simple to use, but a few small things make a big difference. Follow these five steps and one bottle will last a long time.</p>
-      </div>
-      <div class="htu-steps">
-        <div class="htu-step">
-          <div class="htu-num">1</div>
-          <div class="htu-step-content">
-            <h3 class="htu-step-title">Hold the bottle 1–2 inches from the surface.</h3>
-            <p class="htu-step-desc">Get close. You’re applying oil to a specific spot, not misting a room.</p>
-          </div>
-        </div>
-        <div class="htu-step">
-          <div class="htu-num">2</div>
-          <div class="htu-step-content">
-            <h3 class="htu-step-title">Spray onto a surface — never into the air.</h3>
-            <p class="htu-step-desc">Because it’s pure oil, spraying it into the air leaves a film that makes hard floors slippery. Aim at a floor mat, under a seat, or inside a bin instead.</p>
-          </div>
-        </div>
-        <div class="htu-step">
-          <div class="htu-num">3</div>
-          <div class="htu-step-content">
-            <h3 class="htu-step-title">Start with 1–2 sprays.</h3>
-            <p class="htu-step-desc">That’s genuinely enough for a car interior or a small bathroom. You can always add more — you can’t take it back.</p>
-          </div>
-        </div>
-        <div class="htu-step">
-          <div class="htu-num">4</div>
-          <div class="htu-step-content">
-            <h3 class="htu-step-title">For larger rooms, spray once or twice in each corner.</h3>
-            <p class="htu-step-desc">This spreads the scent evenly instead of concentrating it in one spot. Works for the whole house with just one bottle.</p>
-          </div>
-        </div>
-        <div class="htu-step">
-          <div class="htu-num">5</div>
-          <div class="htu-step-content">
-            <h3 class="htu-step-title">Use the cotton-ball trick.</h3>
-            <p class="htu-step-desc">Spray onto a cotton ball and tuck it wherever you want a discreet, steady scent — a closet, a drawer, behind a toilet, under a car seat. Releases fragrance for days.</p>
-          </div>
-        </div>
-        <div class="htu-step htu-step-desktop-only">
-          <div class="htu-num">6</div>
-          <div class="htu-step-content">
-            <h3 class="htu-step-title">Take it everywhere you go.</h3>
-            <p class="htu-step-desc">The 1 oz bottle is small enough to slip into your pocket, purse, glove box or carry-on. Keep one in your bag and another in your car — a five-second odor fix is always within reach, wherever life takes you.</p>
-          </div>
-        </div>
-      </div>
-      <div class="htu-cta-wrap">
-        <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="htu-cta">Shop on Amazon →</a>
-        <p class="htu-cta-note">Made in the USA · Shipped from Canada · 9 fragrances</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENTO USE CASES -->
-  <div class="padding-global">
-    <div class="w-layout-blockcontainer container w-container">
-      <div class="bento-wrapper">
-        <div class="heading-component">
-          <div class="max-width-80ch">
-            <div class="heading-4">Where to Use Scent Bomb: Cars, Bathrooms, Travel, Homes &amp; Gyms</div>
-          </div>
-          <div class="max-width-45ch">
-            <div>Scent Bomb concentrated anti-odor sprays work anywhere you need to eliminate odors — your car interior, bathroom and toilet, gym bag, kitchen, home and travel. Apply 1-2 sprays, kill the smell in 5 seconds, done.</div>
-          </div>
-        </div>
-
-        <div class="bento-component">
-          <div class="bento-row">
-            <div class="card-small"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-14.webp" loading="lazy" alt="Scent Bomb air freshener spray bottle on a clean modern surface" class="image" /></div>
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="card-big w-inline-block">
-              <div class="card-big-content">
-                <div class="max-width-60ch">
-                  <div class="heading-6">In Your Car — Scent Bomb for cars is the top-rated air freshener for vehicles in Canada. Eliminates wet shoes, fast food, gym gear and pet odors. 2 sprays on the floor mat reset the whole interior in 5 seconds. Rideshare drivers swear by Scent Bomb car air fresheners.</div>
-                </div>
-                <div class="secondary-button">
-                  <div class="text-size-small text-weight-medium">Shop scents for cars</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </div>
-              </div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-7.webp" loading="lazy" alt="Scent Bomb air freshener used in a car interior — anti-odor spray for rideshare drivers" class="image" /></div>
-            </a>
-          </div>
-          <div class="bento-row">
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="card-big w-inline-block">
-              <div class="card-big-content">
-                <div class="max-width-40ch">
-                  <div class="heading-6">Bathroom &amp; Toilet — the ultimate pre-poop toilet spray and bathroom air freshener. The 3-drop trick: spray 3 times directly into the bowl water before use. The concentrated oil creates a barrier that traps poop odors before they rise — works as a pre-poop spray, bathroom deodorant spray, or air freshener for any room.</div>
-                </div>
-                <div class="secondary-button">
-                  <div class="text-size-small text-weight-medium">Shop bathroom scents</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="Arrow" /></div>
-                </div>
-              </div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-8.webp" loading="lazy" alt="Scent Bomb spray used in bathroom — concentrated toilet air freshener for Canada" class="image" /></div>
-            </a>
-            <div class="card-small">
-              <div class="relative">
-                <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="primary-button w-inline-block">
-                  <div class="text-weight-medium caps">Shop Best Sellers</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </a>
-              </div>
-              <div class="card-overlay"></div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-6.webp" loading="lazy" alt="Scent Bomb best-selling air freshener fragrances available in Canada" class="image" /></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bento-component">
-          <div class="bento-row">
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="card-big w-inline-block">
-              <div class="card-big-content">
-                <div class="max-width-60ch">
-                  <div class="heading-6">Gym Bag &amp; Lockers — spray a cotton ball, tuck it in. The anti-odor reset between workouts. Works on hockey pads, sneakers, anywhere odor builds up.</div>
-                </div>
-                <div class="secondary-button">
-                  <div class="text-size-small text-weight-medium">Shop gym scents</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </div>
-              </div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-9.webp" loading="lazy" alt="Scent Bomb anti-odor spray for gym bag and athletic equipment" class="image" /></div>
-            </a>
-            <div class="card-small"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-3.webp" loading="lazy" alt="Scent Bomb concentrated fragrance oil bottle close-up" class="image" /></div>
-          </div>
-          <div class="bento-row">
-            <div class="card-small">
-              <div class="relative">
-                <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="primary-button w-inline-block">
-                  <div class="text-weight-medium caps">Get the 8 oz XL Refill</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </a>
-              </div>
-              <div class="card-overlay"></div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-6.webp" loading="lazy" alt="Scent Bomb 8 oz XL refill bottle for long-term household use" class="image" /></div>
-            </div>
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="card-big w-inline-block">
-              <div class="card-big-content">
-                <div class="max-width-40ch">
-                  <div class="heading-6">Kitchen &amp; Trash — spray inside the bin, under the bag. The oil fights odor at the source. Your kitchen stays fresh even on garbage day.</div>
-                </div>
-                <div class="secondary-button">
-                  <div class="text-size-small text-weight-medium">Shop home scents</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </div>
-              </div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-10.webp" loading="lazy" alt="Scent Bomb spray used in kitchen to eliminate trash and food odors" class="image" /></div>
-            </a>
-          </div>
-        </div>
-
-        <div class="bento-component">
-          <div class="bento-row">
-            <div class="card-small"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-16.webp" loading="lazy" alt="Scent Bomb air freshener spray bottle on a stylish home surface" class="image" /></div>
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="card-big w-inline-block">
-              <div class="card-big-content">
-                <div class="max-width-60ch">
-                  <div class="heading-6">Home &amp; Living Spaces — a spray in each corner spreads an even, all-day scent. Cotton balls in closets and drawers keep clothes fresh. No outlet hog.</div>
-                </div>
-                <div class="secondary-button">
-                  <div class="text-size-small text-weight-medium">Shop home scents</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </div>
-              </div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-11.webp" loading="lazy" alt="Scent Bomb air freshener used in a cozy living room — long-lasting home fragrance" class="image" /></div>
-            </a>
-          </div>
-          <div class="bento-row">
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="card-big w-inline-block">
-              <div class="card-big-content">
-                <div class="max-width-40ch">
-                  <div class="heading-6">Travel &amp; Hotels — 1 oz slips into your carry-on or glove box. Reset a hotel room, rental car or Airbnb in 5 seconds. The pocket-sized air freshener.</div>
-                </div>
-                <div class="secondary-button">
-                  <div class="text-size-small text-weight-medium">Shop pocket scents</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </div>
-              </div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-12.webp" loading="lazy" alt="Scent Bomb 1 oz pocket-size air freshener spray for travel and hotels" class="image" /></div>
-            </a>
-            <div class="card-small">
-              <div class="relative">
-                <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="primary-button w-inline-block">
-                  <div class="text-weight-medium caps">Shop All 9 Vibes</div>
-                  <div class="arrow-wrapper"><img src="/images/Arrow.svg" loading="lazy" alt="" /></div>
-                </a>
-              </div>
-              <div class="card-overlay"></div>
-              <div class="card-image"><img src="/images/Scent-Bombs---Best-Air-Fresheners-in-Canada---Anti-Odor-Sprays-6.webp" loading="lazy" alt="All 9 Scent Bomb fragrances available in Canada" class="image" /></div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- STICKY SECTION SWITCHER (appears after hero) -->
+  <div class="sb-pillnav" id="sb-pillnav" aria-label="Jump to product line">
+    <div class="sb-pillnav-inner">
+      <a href="#oopsie" class="sb-pill" data-target="oopsie"><span class="sb-pill-dot"></span>Toilet Sprays</a>
+      <a href="#room-mist" class="sb-pill" data-target="room-mist"><span class="sb-pill-dot"></span>Room Mists</a>
     </div>
   </div>
+
+  <!-- HERO — split into two worlds -->
+  <section class="sb-hero2">
+    <div class="sb-hero2-intro">
+      <div class="sb-hero2-eyebrow">BRISE · Premium Air Fresheners in Canada</div>
+      <h1 class="sb-hero2-title">Two ways to make any space smell incredible.</h1>
+      <p class="sb-hero2-sub">Made in the USA by AROMAR · shipped fast from Canada · essential-oil fragrance.</p>
+    </div>
+    <div class="sb-hero2-split">
+      <a href="#oopsie" class="sb-hero2-panel sb-hero2-panel--op">
+        <div class="sb-hero2-panel-num">01</div>
+        <div class="sb-hero2-panel-body">
+          <div class="sb-hero2-panel-kicker">Oopsie Poopsie</div>
+          <div class="sb-hero2-panel-h">Before-You-Go Toilet Sprays</div>
+          <p>Oil-based. Spray in the bowl before you go — odors are trapped at the source. 8 fragrances.</p>
+          <span class="sb-hero2-panel-cta">Explore toilet sprays →</span>
+        </div>
+        <img class="sb-hero2-panel-img" src="/images/products/op-lemon-bergamot.webp" loading="eager" alt="Oopsie Poopsie before-you-go toilet spray" />
+      </a>
+      <a href="#room-mist" class="sb-hero2-panel sb-hero2-panel--rm">
+        <div class="sb-hero2-panel-num">02</div>
+        <div class="sb-hero2-panel-body">
+          <div class="sb-hero2-panel-kicker">AROMAR+ Spa</div>
+          <div class="sb-hero2-panel-h">Room &amp; Linen Mists</div>
+          <p>Water-based &amp; fabric-safe. Mist rooms, bedding, couches and clothing. 8 oz · 10 fragrances.</p>
+          <span class="sb-hero2-panel-cta">Explore room mists →</span>
+        </div>
+        <img class="sb-hero2-panel-img" src="/images/products/rm-white-gardenia.webp" loading="eager" alt="AROMAR+ Spa Room Mist room and linen spray" />
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ WORLD 1 — OOPSIE POOPSIE ============ -->
+  <section class="world world--op" id="oopsie">
+    <div class="world-inner">
+      <header class="world-header">
+        <div class="world-num">01</div>
+        <div class="world-head-text">
+          <div class="world-kicker">Oopsie Poopsie · Toilet Spray</div>
+          <h2 class="world-title">The before-you-go toilet spray</h2>
+          <p class="world-tagline">Oil-based and made with essential oils. A few sprays into the bowl water <em>before</em> you go traps odors beneath the surface — at home, at work, anywhere there's a toilet.</p>
+          <div class="world-trust"><span>Oil-based</span><span>·</span><span>Essential oils</span><span>·</span><span>Made in USA</span><span>·</span><span>8 fragrances</span></div>
+        </div>
+      </header>
+
+      <!-- Products -->
+      <div class="products-wrapper" id="products">
+        <div class="products-header">
+          <div class="products-heading">
+            <div class="flex-horizontal">
+              <div class="icon-wrapper"><img src="/images/Cross.svg" loading="lazy" alt="" /></div>
+              <div class="text-size-large text-weight-medium caps">Shop the 8 scents</div>
+            </div>
+            <div class="opacity-60"><div>Pre-poop toilet sprays</div></div>
+          </div>
+          <div class="button-wrapper">
+            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="black-button w-inline-block">
+              <div class="text-weight-medium caps">Shop on Amazon</div>
+            </a>
+          </div>
+        </div>
+        <div class="products-card-wrapper">
+          <div role="list" class="products-cards">
+            {oopsiePoopsie.map((p) => (
+              <div role="listitem">
+                <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="product-link w-inline-block">
+                  <div class="product-card-image">
+                    {p.image
+                      ? <img src={p.image} loading="lazy" alt={`Oopsie Poopsie ${p.name} pre-poop toilet spray`} class="image" />
+                      : <div class="sb-img-placeholder"><span>{p.name}</span><small>Photo coming soon</small></div>}
+                  </div>
+                  <div class="product-card-info">
+                    <div class="info">
+                      <div class="text-size-small text-weight-medium caps">{p.name}</div>
+                      <div class="sb-scent-notes">{p.notes}</div>
+                    </div>
+                    <div class="buy-now-button">Buy Now →</div>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- How to use + Where to use -->
+      <div class="world-grid">
+        <div class="world-howto">
+          <div class="world-subhead">How to use</div>
+          <ol class="how-steps">
+            <li><span class="how-step-n">1</span><div><h4>Spray before you go</h4><p>3–5 sprays directly onto the toilet bowl water before you sit down.</p></div></li>
+            <li><span class="how-step-n">2</span><div><h4>Let the oil do the work</h4><p>It floats and forms an invisible barrier that traps odors beneath the surface.</p></div></li>
+            <li><span class="how-step-n">3</span><div><h4>Flush as normal</h4><p>No lingering smell, no spray cloud. Pocket-sized, so take it anywhere.</p></div></li>
+          </ol>
+        </div>
+        <div class="world-uses">
+          <div class="world-subhead">Where to use</div>
+          <div class="sb-uses-grid">
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
+              <h4>Home Bathroom</h4><p>The daily before-you-go ritual by every toilet at home.</p>
+            </div>
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 7h2M9 11h2M9 15h2M13 7h2M13 11h2M13 15h2"/></svg></div>
+              <h4>Public Restrooms</h4><p>Pocket-sized &amp; discreet for work, school and the gym.</p>
+            </div>
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/></svg></div>
+              <h4>Travel &amp; Hotels</h4><p>Slips into any bag for hotels, Airbnbs and road trips.</p>
+            </div>
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-8.5A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6.5C19 16.65 12 21 12 21z"/></svg></div>
+              <h4>Guests &amp; Date Night</h4><p>No more awkward moments when company is over.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORLD 2 — AROMAR+ SPA ROOM MIST ============ -->
+  <section class="world world--rm" id="room-mist">
+    <div class="world-inner">
+      <header class="world-header">
+        <div class="world-num">02</div>
+        <div class="world-head-text">
+          <div class="world-kicker">AROMAR+ · Spa Room Mist</div>
+          <h2 class="world-title">The room &amp; linen mist</h2>
+          <p class="world-tagline">A water-based room spray and linen mist with essential-oil fragrance. Safe on fabric — no oily film, no staining. Spritz the air, your bedding, furniture and clothing. 8&nbsp;oz.</p>
+          <div class="world-trust"><span>Water-based</span><span>·</span><span>Fabric-safe</span><span>·</span><span>8 oz</span><span>·</span><span>10 fragrances</span></div>
+        </div>
+      </header>
+
+      <!-- Products -->
+      <div class="products-wrapper">
+        <div class="products-header">
+          <div class="products-heading">
+            <div class="flex-horizontal">
+              <div class="icon-wrapper"><img src="/images/Cross.svg" loading="lazy" alt="" /></div>
+              <div class="text-size-large text-weight-medium caps">Shop the 10 scents</div>
+            </div>
+            <div class="opacity-60"><div>Room &amp; fabric mists · 8 oz</div></div>
+          </div>
+          <div class="button-wrapper">
+            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="black-button w-inline-block">
+              <div class="text-weight-medium caps">Shop on Amazon</div>
+            </a>
+          </div>
+        </div>
+        <div class="products-card-wrapper">
+          <div role="list" class="products-cards">
+            {roomMists.map((p) => (
+              <div role="listitem">
+                <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="product-link w-inline-block">
+                  <div class="product-card-image">
+                    {p.image
+                      ? <img src={p.image} loading="lazy" alt={`AROMAR+ ${p.name} Spa Room Mist 8 oz`} class="image" />
+                      : <div class="sb-img-placeholder"><span>{p.name}</span><small>Photo coming soon</small></div>}
+                  </div>
+                  <div class="product-card-info">
+                    <div class="info">
+                      <div class="text-size-small text-weight-medium caps">{p.name}{p.star ? ' (type)' : ''}</div>
+                      <div class="sb-scent-notes">{p.notes}</div>
+                    </div>
+                    <div class="buy-now-button">Buy Now →</div>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p class="sb-star-disclaimer">* Channel #5 Inspired: experience the captivating allure of our Channel&nbsp;#5* (type) Room Mist, carefully crafted to evoke the sophistication reminiscent of the iconic fragrance. An independent AROMAR+ fragrance — not affiliated with or endorsed by any luxury brand.</p>
+      </div>
+
+      <!-- How to use + Where to use -->
+      <div class="world-grid">
+        <div class="world-howto">
+          <div class="world-subhead">How to use</div>
+          <ol class="how-steps">
+            <li><span class="how-step-n">1</span><div><h4>Mist the air &amp; fabric</h4><p>A few sprays over the room, bedding, couch, curtains or clothing.</p></div></li>
+            <li><span class="how-step-n">2</span><div><h4>Let it settle</h4><p>The water-based formula dries clean — no oily residue, no staining.</p></div></li>
+            <li><span class="how-step-n">3</span><div><h4>Refresh anytime</h4><p>Reapply on linen and upholstery; the scent holds for days.</p></div></li>
+          </ol>
+        </div>
+        <div class="world-uses">
+          <div class="world-subhead">Where to use</div>
+          <div class="sb-uses-grid">
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 17V7a1 1 0 0 1 1-1h11a3 3 0 0 1 3 3v3"/><path d="M2 13h18a2 2 0 0 1 2 2v2"/><path d="M2 17v2M22 17v2"/></svg></div>
+              <h4>Bedroom &amp; Linen</h4><p>Mist pillows, sheets and mattresses for spa-like sleep.</p>
+            </div>
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5H2z"/><path d="M5 18v2M19 18v2"/></svg></div>
+              <h4>Living Room &amp; Fabric</h4><p>Refresh couches, curtains and rugs in seconds.</p>
+            </div>
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a2 2 0 1 0-1.7 3L3 13h18l-7.3-6A2 2 0 0 0 12 4z"/><path d="M3 13v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/></svg></div>
+              <h4>Closets &amp; Clothing</h4><p>Keep wardrobes, drawers and gym bags fresh for days.</p>
+            </div>
+            <div class="sb-use-card">
+              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="10.5" r="1.8"/><circle cx="10.5" cy="6.5" r="1.8"/><circle cx="13.5" cy="6.5" r="1.8"/><circle cx="17.5" cy="10.5" r="1.8"/><path d="M8 15.5c1.2-1.6 6.8-1.6 8 0 .9 1.2-.6 3-2.2 3-1 0-1.2-.6-1.8-.6s-.8.6-1.8.6c-1.6 0-3.1-1.8-2.2-3z"/></svg></div>
+              <h4>Pets &amp; Whole Home</h4><p>A pet-friendly essential-oil freshener for every room.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- WHERE TO BUY + FAQ + FINAL CTA -->
   <section>
@@ -473,16 +304,16 @@ const faqs = [
         <div class="sb-wtb-section" id="where-to-buy">
           <div class="sb-wtb-inner">
             <div class="sb-wtb-eyebrow">● Available across Canada</div>
-            <h2 class="sb-wtb-heading">Where to Buy Scent Bomb Air Fresheners in Canada</h2>
-            <p class="sb-wtb-body">Buy <strong>Scent Bomb anti-odor sprays online in Canada</strong> — the most concentrated air freshener for cars, bathrooms, toilets and home. Shop all 9 Scent Bomb fragrances (<strong>Black Cherry, Mango Tropical, Hawaiian Blue, Clean Cotton, Vanilla, Green Bomb, Juicy Juice, Tangerine Blast, New Car</strong>) through our Amazon Canada storefront. Ships from within Canada with no customs fees and 30-day buyer guarantee returns.</p>
-            <div class="sb-wtb-trust"><span>✓ Made in USA</span><span class="sb-wtb-dot"></span><span>✓ Ships from Canada</span><span class="sb-wtb-dot"></span><span>✓ 30-day returns</span><span class="sb-wtb-dot"></span><span>✓ Verified Amazon storefront</span></div>
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-wtb-cta">Shop Scent Bomb on Amazon Canada →</a>
+            <h2 class="sb-wtb-heading">Where to Buy Oopsie Poopsie &amp; AROMAR Room Mists in Canada</h2>
+            <p class="sb-wtb-body">Buy <strong>Oopsie Poopsie pre-poop toilet sprays</strong> and <strong>AROMAR+ Spa Room Mists</strong> online in Canada. 8 toilet-spray fragrances and 10 room-and-fabric mists, all made in the USA by AROMAR, sold through our Amazon Canada storefront. Ships from within Canada with no customs fees and Amazon buyer-guarantee returns.</p>
+            <div class="sb-wtb-trust"><span>✓ Made in USA</span><span class="sb-wtb-dot"></span><span>✓ Ships from Canada</span><span class="sb-wtb-dot"></span><span>✓ 18 fragrances</span><span class="sb-wtb-dot"></span><span>✓ Verified Amazon storefront</span></div>
+            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-wtb-cta">Shop on Amazon Canada →</a>
           </div>
         </div>
 
         <div class="faq-wrapper" id="faq">
           <div class="faq-heading">
-            <div class="heading-5">Scent Bomb FAQ: Toilet Spray, Car Spray, Room Spray</div>
+            <div class="heading-5">FAQ: Pre-Poop Toilet Sprays &amp; Spa Room Mists</div>
           </div>
           <div class="faq-component">
             <div role="list" class="faq-list">
@@ -510,11 +341,11 @@ const faqs = [
         <div class="sb-final-cta">
           <div class="sb-final-cta-glow"></div>
           <div class="sb-final-cta-inner">
-            <div class="sb-final-cta-eyebrow"><span class="sb-final-cta-dot"></span>One bottle. Five seconds.</div>
-            <h2 class="sb-final-cta-heading">Stop covering odors.<br /><em>Eliminate them.</em></h2>
-            <p class="sb-final-cta-sub">9 concentrated fragrances. 1 oz pocket size. Shipped fast across Canada.</p>
+            <div class="sb-final-cta-eyebrow"><span class="sb-final-cta-dot"></span>Toilet sprays &amp; room mists</div>
+            <h2 class="sb-final-cta-heading">Stop covering odors.<br /><em>Trap them at the source.</em></h2>
+            <p class="sb-final-cta-sub">18 premium fragrances. Made in the USA. Shipped fast across Canada.</p>
             <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-final-cta-button"><span>Shop Now</span><span class="sb-final-cta-arrow">→</span></a>
-            <div class="sb-final-cta-trust"><span>✓ Free returns</span><span class="sb-final-cta-sep"></span><span>✓ Made in USA</span><span class="sb-final-cta-sep"></span><span>✓ Verified Amazon storefront</span></div>
+            <div class="sb-final-cta-trust"><span>✓ Made in USA</span><span class="sb-final-cta-sep"></span><span>✓ Ships from Canada</span><span class="sb-final-cta-sep"></span><span>✓ Verified Amazon storefront</span></div>
           </div>
         </div>
       </div>
@@ -532,7 +363,8 @@ const faqs = [
               <div class="footer-text-size text-weight-medium">Explore</div>
               <div class="footer-links-wrapper">
                 <a href="/" class="footer-link">Home</a>
-                <a href="#products" class="footer-link">Products</a>
+                <a href="#oopsie" class="footer-link">Toilet Sprays</a>
+                <a href="#room-mist" class="footer-link">Room Mists</a>
               </div>
             </div>
             <div class="footer-grid-wrap">
@@ -573,4 +405,47 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <!-- Two-worlds interactions: sticky pill nav show/hide + active section highlight -->
+  <script is:inline>
+    (function () {
+      function initWorlds() {
+        var pillnav = document.getElementById('sb-pillnav');
+        var hero = document.querySelector('.sb-hero2');
+        var pills = Array.prototype.slice.call(document.querySelectorAll('.sb-pill'));
+        var sections = ['oopsie', 'room-mist'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+        if (!pillnav) return;
+
+        // Show pill nav once the hero is scrolled past
+        if ('IntersectionObserver' in window && hero) {
+          var heroObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              pillnav.classList.toggle('is-visible', !e.isIntersecting);
+            });
+          }, { rootMargin: '-60px 0px 0px 0px' });
+          heroObs.observe(hero);
+        }
+
+        // Highlight the active world while scrolling
+        if ('IntersectionObserver' in window && sections.length) {
+          var secObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                var id = e.target.id;
+                pills.forEach(function (p) {
+                  p.classList.toggle('is-active', p.getAttribute('data-target') === id);
+                });
+              }
+            });
+          }, { rootMargin: '-45% 0px -45% 0px' });
+          sections.forEach(function (s) { secObs.observe(s); });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWorlds);
+      } else {
+        initWorlds();
+      }
+    })();
+  </script>
 </Layout>
