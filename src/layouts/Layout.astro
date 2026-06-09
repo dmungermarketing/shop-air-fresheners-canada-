@@ -6,8 +6,8 @@ interface Props {
 }
 
 const {
-  title = 'Air Freshener Canada | Room Spray, Linen Mist & Toilet Spray',
-  description = 'Shop natural air fresheners in Canada — AROMAR+ room sprays & linen mists for bedrooms, fabric and pillows, plus Oopsie Poopsie before-you-go toilet sprays. Essential-oil based, made in USA, fast Canadian shipping.',
+  title = 'Oopsie Poopsie Canada | Before-You-Go Toilet Spray',
+  description = 'Buy Oopsie Poopsie pre-poop toilet spray in Canada — spray the bowl before you go to trap odors at the source. 8 essential-oil scents, made in USA, fast Canadian shipping.',
   canonical = Astro.url.href,
 } = Astro.props;
 
@@ -24,45 +24,40 @@ const faqSchema = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'How does Oopsie Poopsie pre-poop toilet spray work?', acceptedAnswer: { '@type': 'Answer', text: 'Spray 3 to 5 times directly into the toilet bowl water BEFORE you go. The oil-based formula floats on the water surface and forms an invisible barrier that traps odors before they rise into the room. The bathroom stays fresh.' } },
-    { '@type': 'Question', name: 'What is the difference between Oopsie Poopsie and AROMAR+ Spa Room Mist?', acceptedAnswer: { '@type': 'Answer', text: 'Oopsie Poopsie is an oil-based pre-poop toilet spray — designed exclusively for toilet bowls before use, sprayed onto the water surface. AROMAR+ Spa Room Mist is water-based with fragrance oil — a room and fabric mist for freshening rooms, linen, furniture, pillows, and clothing. The room mist will not stain fabric.' } },
-    { '@type': 'Question', name: 'Can I use AROMAR+ Spa Room Mist on fabric, linen and furniture?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. AROMAR+ Spa Room Mist is water-based with fragrance oil, designed for fabric. Spray on pillows, mattresses, couches, curtains, linen, clothing, gym bags, and pet beds. The fragrance lasts and there is no oily residue or staining.' } },
     { '@type': 'Question', name: 'How many sprays of Oopsie Poopsie should I use?', acceptedAnswer: { '@type': 'Answer', text: 'For best results, 3 to 5 sprays directly into the toilet bowl water before sitting down. The oil forms a thin floating layer that traps odors. A little goes a long way — one bottle lasts hundreds of uses.' } },
-    { '@type': 'Question', name: 'Which Oopsie Poopsie fragrance should I choose?', acceptedAnswer: { '@type': 'Answer', text: 'For first-time users, we recommend the bestsellers: Lemon Bergamot (citrus, fresh), Lavender Escape (calming, classic), Mediterranean Sage (earthy, herbal), Berry Fresh (sweet, fruity), or Flower Citrus (bright, uplifting). All 8 fragrances are popular — pick what suits your home best.' } },
-    { '@type': 'Question', name: 'Will AROMAR+ Spa Room Mist stain my couch or pillows?', acceptedAnswer: { '@type': 'Answer', text: 'No. AROMAR+ Spa Room Mist is water-based with fragrance oil — formulated to be safe on most fabrics including couches, pillows, mattresses, and clothing. We recommend testing on a hidden area first. The product dries clean with no residue.' } },
-    { '@type': 'Question', name: 'How long does the Spa Room Mist fragrance last?', acceptedAnswer: { '@type': 'Answer', text: 'A few sprays of AROMAR+ Spa Room Mist freshen a room for several hours. On fabric and linen, the scent typically holds 1 to 3 days depending on airflow and use. The 8 oz bottle lasts a long time for daily use.' } },
-    { '@type': 'Question', name: 'Where can I buy Oopsie Poopsie and AROMAR Room Mists in Canada?', acceptedAnswer: { '@type': 'Answer', text: 'Right here. Click any Shop on Amazon button and you will be taken to our Amazon Canada storefront. We are an independent Canadian retailer specializing in AROMAR fragrance products. Fast shipping anywhere in Canada.' } },
-    { '@type': 'Question', name: 'How fast is shipping within Canada?', acceptedAnswer: { '@type': 'Answer', text: 'Orders ship quickly from within Canada through Amazon Canada — no slow cross-border wait and no surprise customs fees. Delivery times shown at checkout, typically 2 to 7 business days.' } },
-    { '@type': 'Question', name: 'Are Oopsie Poopsie and AROMAR+ made in the USA?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Both product lines are manufactured by AROMAR in the USA from premium fragrance oils. We are an independent Canadian retailer making them available to Canadian customers with local shipping.' } },
-    { '@type': 'Question', name: 'Can I use Oopsie Poopsie in a public restroom or rental?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. The 1 oz pocket-sized Oopsie Poopsie slips into any bag or purse. Discreetly spray into any toilet bowl before use to keep public restrooms, rental units and hotel rooms fresh.' } },
-    { '@type': 'Question', name: 'Is AROMAR+ Spa Room Mist pet safe?', acceptedAnswer: { '@type': 'Answer', text: 'AROMAR+ Spa Room Mist is generally safe to use around pets when applied to surfaces or fabric (not directly on the pet). Allow areas to dry before pets contact them. Keep bottles out of reach of pets and children.' } },
-    { '@type': 'Question', name: 'What is the Channel #5 inspired Spa Room Mist?', acceptedAnswer: { '@type': 'Answer', text: 'Our Channel #5* (type) Spa Room Mist is inspired by classic French perfumery — crafted to evoke the sophistication and allure reminiscent of iconic luxury fragrances. It is an independent AROMAR+ fragrance, not affiliated with any luxury brand.' } },
+    { '@type': 'Question', name: 'Which Oopsie Poopsie fragrance should I choose?', acceptedAnswer: { '@type': 'Answer', text: 'Popular picks: Lemon Bergamot (bright citrus), Lavender Escape (calming, classic), Mediterranean Sage (earthy, herbal), Berry Fresh (sweet, fruity), Morning Shower (clean rose and powder), and Flower Citrus (uplifting floral). All 8 are made with essential oils — pick what suits your home best.' } },
+    { '@type': 'Question', name: 'Is Oopsie Poopsie made with essential oils?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Oopsie Poopsie is made in the USA with essential oils — aerosol-free and cruelty-free. The concentrated formula means a little goes a long way.' } },
+    { '@type': 'Question', name: 'Can I use Oopsie Poopsie in a public restroom or rental?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. The pocket-sized bottle slips into any bag or purse. Discreetly spray into any toilet bowl before use to keep public restrooms, rental units and hotel rooms fresh.' } },
+    { '@type': 'Question', name: 'Where can I buy Oopsie Poopsie toilet spray in Canada?', acceptedAnswer: { '@type': 'Answer', text: 'Right here. Click any Shop button to order. We are an independent Canadian retailer of Oopsie Poopsie, with fast shipping anywhere in Canada.' } },
+    { '@type': 'Question', name: 'How fast is shipping within Canada?', acceptedAnswer: { '@type': 'Answer', text: 'Orders ship quickly from within Canada — no slow cross-border wait and no surprise customs fees. Delivery is typically 2 to 7 business days; exact options are shown at checkout.' } },
+    { '@type': 'Question', name: 'Is Oopsie Poopsie really made in the USA?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Oopsie Poopsie is manufactured in the USA from premium essential oils. We are an independent Canadian retailer making it available to Canadian customers with local shipping.' } },
   ],
 };
+
+const oopsiePoopsieScents = ['Lemon Bergamot', 'Lavender Escape', 'Mediterranean Sage', 'Berry Fresh', 'Morning Shower', 'Flower Citrus', 'Summer Sea', 'Wild Mint'];
 
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   '@id': `${SITE_URL}/#product`,
-  name: 'Oopsie Poopsie Pre-Poop Toilet Sprays & AROMAR+ Spa Room Mists',
-  alternateName: ['Oopsie Poopsie', 'AROMAR+ Spa Room Mist', 'Oopsie Poopsie Toilet Spray', 'AROMAR Room Mist', 'Pre-Poop Toilet Spray', 'Spa Room Mist'],
-  description: 'Buy premium air fresheners in Canada — Oopsie Poopsie pre-poop toilet sprays (oil-based, 8 fragrances) and AROMAR+ Spa Room Mists (water-based, fabric-safe, 10 fragrances). For toilets, bathrooms, bedrooms, fabric, linen, pillows, furniture and rooms. Made in USA by AROMAR. Shipped from Canada via Amazon.',
-  category: 'Air Fresheners > Anti-Odor Toilet Sprays & Spa Room Mists',
+  name: 'Oopsie Poopsie Pre-Poop Toilet Spray',
+  alternateName: ['Oopsie Poopsie', 'Oopsie Poopsie Toilet Spray', 'Pre-Poop Toilet Spray', 'Before-You-Go Toilet Spray'],
+  description: 'Buy Oopsie Poopsie pre-poop toilet spray in Canada — oil-based, made with essential oils. Spray the bowl before you go and odors are trapped at the source. 8 fragrances: Lemon Bergamot, Lavender Escape, Mediterranean Sage, Berry Fresh, Morning Shower, Flower Citrus, Summer Sea and Wild Mint. Made in USA, shipped from Canada.',
+  category: 'Air Fresheners > Anti-Odor Toilet Sprays',
   image: [OG_IMAGE],
-  brand: { '@type': 'Brand', name: 'AROMAR' },
+  brand: { '@type': 'Brand', name: 'Oopsie Poopsie' },
   manufacturer: { '@type': 'Organization', name: 'AROMAR', address: { '@type': 'PostalAddress', addressCountry: 'US' } },
   countryOfOrigin: { '@type': 'Country', name: 'US' },
-  keywords: 'oopsie poopsie canada, aromar canada, aromar room mist, pre poop toilet spray, poop spray, room mist, spa room mist, air freshener canada, fabric spray, linen spray, anti-odor toilet spray',
+  keywords: 'oopsie poopsie canada, pre poop toilet spray, before you go toilet spray, poop spray, toilet spray, bathroom deodorizer, essential oil toilet spray',
   offers: {
     '@type': 'AggregateOffer',
-    offerCount: 9,
+    offerCount: 8,
     priceCurrency: 'CAD',
-    lowPrice: '14.99',
-    highPrice: '39.99',
+    lowPrice: '12.99',
+    highPrice: '12.99',
     availability: 'https://schema.org/InStock',
     seller: { '@id': `${SITE_URL}/#organization` },
     url: AMAZON_URL,
-    // Shipping & return policy come from Amazon Canada's own listing — not declared here
-    // (Amazon-managed; would mislead if we claim policies we don't control)
   },
 };
 
@@ -72,7 +67,7 @@ const orgSchema = {
   '@id': `${SITE_URL}/#organization`,
   name: 'BRISE',
   alternateName: 'Shop Air Fresheners Canada',
-  description: 'Independent Canadian retailer of AROMAR premium air fresheners — Oopsie Poopsie pre-poop toilet sprays and AROMAR+ Spa Room Mists.',
+  description: 'Independent Canadian retailer of Oopsie Poopsie pre-poop toilet sprays.',
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.svg`,
   image: OG_IMAGE,
@@ -86,50 +81,35 @@ const websiteSchema = {
   '@id': `${SITE_URL}/#website`,
   url: SITE_URL,
   name: 'Shop Air Fresheners Canada',
-  description: 'Shop premium air fresheners in Canada — Oopsie Poopsie pre-poop toilet sprays and AROMAR+ Spa Room Mists. Made in USA, fast Canadian shipping.',
+  description: 'Shop Oopsie Poopsie pre-poop toilet spray in Canada. 8 essential-oil scents, made in USA, fast Canadian shipping.',
   inLanguage: 'en-CA',
   publisher: { '@id': `${SITE_URL}/#organization` },
 };
-
-const oopsiePoopsieScents = ['Summer Sea', 'Wild Mint', 'Lemon Bergamot', 'Lavender Escape', 'Mediterranean Sage', 'Berry Fresh', 'Morning Shower', 'Flower Citrus'];
-const spaRoomMistScents = ['Baby Powder', 'Channel #5* (type)', 'Eternal Life', 'Eucalyptus', 'Honey Rose', 'Midnight Lover', 'Mulberry', 'Sea Breeze', 'White Gardenia', 'Sandalwood Forest'];
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'OnlineStore',
   '@id': `${SITE_URL}/#store`,
-  name: 'Shop Air Fresheners Canada — AROMAR Reseller',
-  description: 'Online Canadian retailer of AROMAR premium air fresheners — 8 Oopsie Poopsie pre-poop toilet sprays (oil-based) and 10 AROMAR+ Spa Room Mists (water-based, fabric-safe). Fast Canadian shipping via Amazon storefront.',
+  name: 'Shop Air Fresheners Canada — Oopsie Poopsie',
+  description: 'Online Canadian retailer of Oopsie Poopsie pre-poop toilet sprays — 8 essential-oil fragrances, oil-based, made in the USA. Fast Canadian shipping.',
   url: SITE_URL,
   image: OG_IMAGE,
-  // Sales are fulfilled through Amazon Canada — they handle payment + shipping + returns
   currenciesAccepted: 'CAD',
   areaServed: { '@type': 'Country', name: 'Canada' },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'AROMAR Premium Air Fresheners — 18 Fragrances',
-    itemListElement: [
-      ...oopsiePoopsieScents.map((scent, i) => ({
-        '@type': 'Offer',
-        name: `Oopsie Poopsie ${scent} — Pre-Poop Toilet Spray`,
-        description: `Oopsie Poopsie ${scent} — oil-based pre-poop toilet spray. Spray into the bowl water before use; the oil floats and traps odors before they rise. Shipped from Canada.`,
-        priceCurrency: 'CAD',
-        availability: 'https://schema.org/InStock',
-        position: i + 1,
-        url: AMAZON_URL,
-        seller: { '@id': `${SITE_URL}/#organization` },
-      })),
-      ...spaRoomMistScents.map((scent, i) => ({
-        '@type': 'Offer',
-        name: `AROMAR+ Spa Room Mist 8 oz — ${scent}`,
-        description: `AROMAR+ Spa Room Mist ${scent} — 8 oz water-based room and fabric mist. Safe on pillows, mattresses, linen, furniture and clothing. Long-lasting fragrance. Shipped from Canada.`,
-        priceCurrency: 'CAD',
-        availability: 'https://schema.org/InStock',
-        position: oopsiePoopsieScents.length + i + 1,
-        url: AMAZON_URL,
-        seller: { '@id': `${SITE_URL}/#organization` },
-      })),
-    ],
+    name: 'Oopsie Poopsie Pre-Poop Toilet Sprays — 8 Fragrances',
+    itemListElement: oopsiePoopsieScents.map((scent, i) => ({
+      '@type': 'Offer',
+      name: `Oopsie Poopsie ${scent} — Pre-Poop Toilet Spray`,
+      description: `Oopsie Poopsie ${scent} — oil-based pre-poop toilet spray. Spray into the bowl water before use; the oil floats and traps odors before they rise. Made in USA, shipped from Canada.`,
+      priceCurrency: 'CAD',
+      price: '12.99',
+      availability: 'https://schema.org/InStock',
+      position: i + 1,
+      url: AMAZON_URL,
+      seller: { '@id': `${SITE_URL}/#organization` },
+    })),
   },
 };
 
@@ -176,8 +156,8 @@ const breadcrumbSchema = {
     <meta name="apple-mobile-web-app-title" content="Shop Air Fresheners" />
     <meta name="format-detection" content="telephone=no" />
 
-    <!-- Keywords (Semrush CA/EN — top-volume terms across the 3 pillars) -->
-    <meta name="keywords" content="air freshener, air freshener canada, natural air freshener, room air freshener, air freshener spray, air freshener for home, odor eliminator, odor eliminator spray, pet odor eliminator, room spray, room spray canada, linen spray, linen mist, fabric spray, fabric freshener spray, pillow spray, pillow mist, sleep spray, sleep mist, bed spray, bedroom spray, bedding spray, mattress spray, fragrance mist, room deodorizer, room freshener spray, room fragrance spray, lavender room spray, essential oil room spray, essential oil spray, luxury room spray, closet spray, aromatherapy room spray, spa mist, aromar canada, aromar room mist, toilet spray, bathroom spray, bathroom freshener, bathroom air freshener, bathroom deodorizer, poop spray, poo spray, before you go toilet spray, pre poop toilet spray, toilet odor eliminator, toilet deodorizer spray, oopsie poopsie, oopsie poopsie canada, natural toilet spray" />
+    <!-- Keywords (Semrush CA/EN — toilet-spray / pre-poop cluster) -->
+    <meta name="keywords" content="oopsie poopsie, oopsie poopsie canada, oopsie poopsie toilet spray, toilet spray, toilet spray canada, before you go toilet spray, before-you-go spray, pre poop toilet spray, pre poop spray, poop spray, poop spray for toilet, poo spray, bathroom spray, bathroom freshener, bathroom air freshener, bathroom deodorizer, toilet odor eliminator, toilet smell eliminator, toilet deodorizer spray, toilet odor spray, natural toilet spray, essential oil toilet spray, best toilet spray, air freshener for bathroom, toilet freshener, poop odor spray, made in usa toilet spray" />
 
     <!-- Open Graph (Facebook, LinkedIn, Pinterest) -->
     <meta property="og:type" content="website" />
@@ -192,14 +172,14 @@ const breadcrumbSchema = {
     <meta property="og:image:width" content={String(OG_IMAGE_WIDTH)} />
     <meta property="og:image:height" content={String(OG_IMAGE_HEIGHT)} />
     <meta property="og:image:type" content="image/webp" />
-    <meta property="og:image:alt" content="Oopsie Poopsie pre-poop toilet sprays and AROMAR+ Spa Room Mists — premium air fresheners available in Canada" />
+    <meta property="og:image:alt" content="Oopsie Poopsie pre-poop toilet spray — 8 essential-oil scents, available in Canada" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={OG_IMAGE} />
-    <meta name="twitter:image:alt" content="Oopsie Poopsie toilet sprays and AROMAR+ Spa Room Mists — air fresheners in Canada" />
+    <meta name="twitter:image:alt" content="Oopsie Poopsie pre-poop toilet spray — available in Canada" />
     <meta name="twitter:domain" content="shopairfresheners.ca" />
 
     <!-- Favicons -->
@@ -517,6 +497,39 @@ const breadcrumbSchema = {
         padding: 8rem 1.5rem 3.5rem;
       }
       .sb-hero2-intro { max-width: 1180px; margin: 0 auto 2.5rem; text-align: center; }
+
+      /* HERO — single (Oopsie Poopsie) */
+      .sb-hero2--solo { padding: 8rem 1.5rem 4rem; }
+      .sb-hero2-solo-grid {
+        max-width: 1100px; margin: 0 auto;
+        display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; align-items: center;
+      }
+      .sb-hero2-intro--left { text-align: left; margin: 0; max-width: none; }
+      .sb-hero2-intro--left .sb-hero2-title { margin-left: 0; }
+      .sb-hero2-intro--left .sb-hero2-sub { margin-left: 0; }
+      .sb-hero2-intro--left .sb-hero2-sub em { color: #b9701f; font-style: italic; }
+      .sb-hero2-solo-cta {
+        display: inline-block; margin-top: 1.5rem;
+        font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.9rem;
+        padding: 1rem 2rem; border-radius: 999px;
+        background: #C8732F; color: var(--brise-cream) !important;
+        box-shadow: 0 12px 30px rgba(200,115,47,0.35);
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      }
+      .sb-hero2-solo-cta:hover { background: #9d551d; transform: translateY(-2px); box-shadow: 0 16px 38px rgba(200,115,47,0.5); }
+      .sb-hero2-solo-media {
+        display: flex; align-items: center; justify-content: center;
+        background: linear-gradient(160deg, #FBF1DD 0%, #F5E2C2 100%);
+        border-radius: 24px; padding: 2rem; aspect-ratio: 1/1;
+        box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+      }
+      .sb-hero2-solo-media img { max-height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 16px 30px rgba(0,0,0,0.2)); }
+      @media (max-width: 767px) {
+        .sb-hero2--solo { padding: 6.5rem 1.25rem 2.5rem; }
+        .sb-hero2-solo-grid { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+        .sb-hero2-intro--left { text-align: center; }
+        .sb-hero2-solo-media { aspect-ratio: 4/3; order: -1; }
+      }
       .sb-hero2-eyebrow {
         font-family: "Montserrat", sans-serif;
         font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;

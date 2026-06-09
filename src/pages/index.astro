@@ -32,24 +32,19 @@ const roomMists = [
 
 const faqs = [
   { q: 'How does Oopsie Poopsie pre-poop toilet spray work?', a: 'Spray 3–5 times directly into the toilet bowl water BEFORE you go. The oil-based formula floats on the water surface and forms an invisible barrier that traps odors before they rise into the room — so the bathroom stays fresh and no one ever knows.' },
-  { q: 'What is the difference between Oopsie Poopsie and AROMAR+ Spa Room Mist?', a: 'Oopsie Poopsie is an oil-based pre-poop toilet spray — designed for the toilet bowl, sprayed onto the water before use. AROMAR+ Spa Room Mist is water-based with fragrance oil — a room and fabric mist for freshening rooms, linen, pillows, furniture and clothing. The room mist will not stain fabric.' },
-  { q: 'Can I use AROMAR+ Spa Room Mist on fabric, linen and furniture?', a: 'Yes. AROMAR+ Spa Room Mist is water-based and designed for fabric. Spray on pillows, mattresses, couches, curtains, linen, clothing, gym bags and pet beds. The fragrance lasts and there is no oily residue or staining (we still recommend testing a hidden spot first).' },
   { q: 'How many sprays of Oopsie Poopsie should I use?', a: 'For best results, 3–5 sprays directly into the toilet bowl water before sitting down. The oil forms a thin floating layer that traps odors. A little goes a long way — one bottle lasts hundreds of uses.' },
   { q: 'Which Oopsie Poopsie fragrance should I choose?', a: 'Popular picks: Lemon Bergamot (bright citrus), Lavender Escape (calming, classic), Mediterranean Sage (earthy herbal), Berry Fresh (sweet fruity), Morning Shower (clean rose & powder), and Flower Citrus (uplifting floral). All 8 are made with essential oils — pick what suits your home best.' },
-  { q: 'Will AROMAR+ Spa Room Mist stain my couch or pillows?', a: 'No. AROMAR+ Spa Room Mist is water-based — formulated to be safe on most fabrics including couches, pillows, mattresses and clothing. We recommend testing on a hidden area first. It dries clean with no oily residue.' },
-  { q: 'How long does the Spa Room Mist fragrance last?', a: 'A few sprays freshen a room for several hours. On fabric and linen the scent typically holds 1–3 days depending on airflow and use. The 8 oz bottle lasts a long time for everyday use.' },
-  { q: 'Where can I buy Oopsie Poopsie and AROMAR room mists in Canada?', a: 'Right here. Click any "Shop on Amazon" button and you will be taken to our Amazon Canada storefront. We are an independent Canadian retailer of AROMAR fragrance products, with fast shipping anywhere in Canada.' },
-  { q: 'How fast is shipping within Canada?', a: 'Orders ship quickly from within Canada through Amazon — no slow cross-border wait and no surprise customs fees. Delivery is typically 2–7 business days; exact options are shown at checkout.' },
-  { q: 'Are Oopsie Poopsie and AROMAR+ made in the USA?', a: 'Yes. Both product lines are manufactured by AROMAR in the USA from premium fragrance oils. We are an independent Canadian retailer making them available to Canadian customers with local shipping.' },
+  { q: 'Is Oopsie Poopsie made with essential oils?', a: 'Yes. Oopsie Poopsie is made in the USA with essential oils — aerosol-free and cruelty-free. The concentrated formula means a little goes a long way.' },
   { q: 'Can I use Oopsie Poopsie in a public restroom or rental?', a: 'Absolutely. The pocket-sized bottle slips into any bag or purse — discreetly spray into any toilet bowl before use to keep public restrooms, rentals and hotel rooms fresh. Poop anywhere with confidence.' },
-  { q: 'Is AROMAR+ Spa Room Mist safe around pets?', a: 'AROMAR+ Spa Room Mist is generally safe when applied to surfaces or fabric (not directly on the pet). Let areas dry before pets contact them, and keep bottles out of reach of pets and children.' },
-  { q: 'What is the Channel #5* inspired Spa Room Mist?', a: 'Our Channel #5* (type) Spa Room Mist is inspired by classic French perfumery — crafted to evoke the sophistication reminiscent of iconic luxury fragrances. It is an independent AROMAR+ fragrance and is not affiliated with, or endorsed by, any luxury brand.' },
+  { q: 'Where can I buy Oopsie Poopsie toilet spray in Canada?', a: 'Right here. Click any "Shop" button to order from our store. We are an independent Canadian retailer of Oopsie Poopsie, with fast shipping anywhere in Canada.' },
+  { q: 'How fast is shipping within Canada?', a: 'Orders ship quickly from within Canada — no slow cross-border wait and no surprise customs fees. Delivery is typically 2–7 business days; exact options are shown at checkout.' },
+  { q: 'Is Oopsie Poopsie really made in the USA?', a: 'Yes. Oopsie Poopsie is manufactured in the USA from premium essential oils. We are an independent Canadian retailer making it available to Canadian customers with local shipping.' },
 ];
 ---
 
 <Layout
-  title="Air Freshener Canada | Room Spray, Linen Mist & Toilet Spray"
-  description="Shop natural air fresheners in Canada — AROMAR+ room sprays & linen mists for bedrooms, fabric and pillows, plus Oopsie Poopsie before-you-go toilet sprays. Essential-oil based, made in USA, fast Canadian shipping."
+  title="Oopsie Poopsie Canada | Before-You-Go Toilet Spray"
+  description="Buy Oopsie Poopsie pre-poop toilet spray in Canada — spray the bowl before you go to trap odors at the source. 8 essential-oil scents, made in USA, fast Canadian shipping."
 >
   <!-- NAVBAR -->
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
@@ -65,8 +60,7 @@ const faqs = [
             </div>
             <nav role="navigation" class="nav-menu w-nav-menu">
               <a href="/" class="nav-link w-inline-block"><div>Home</div></a>
-              <a href="#oopsie" class="nav-link w-inline-block"><div>Toilet Sprays</div></a>
-              <a href="#room-mist" class="nav-link w-inline-block"><div>Room Mists</div></a>
+              <a href="#products" class="nav-link w-inline-block"><div>Shop</div></a>
               <a href="#faq" class="nav-link w-inline-block"><div>FAQ</div></a>
               <div class="button-border">
                 <a href="#where-to-buy" class="button-navbar margin-left w-inline-block">
@@ -81,42 +75,18 @@ const faqs = [
     <div class="overlay-navbar"></div>
   </div>
 
-  <!-- STICKY SECTION SWITCHER (appears after hero) -->
-  <div class="sb-pillnav" id="sb-pillnav" aria-label="Jump to product line">
-    <div class="sb-pillnav-inner">
-      <a href="#oopsie" class="sb-pill" data-target="oopsie"><span class="sb-pill-dot"></span>Toilet Sprays</a>
-      <a href="#room-mist" class="sb-pill" data-target="room-mist"><span class="sb-pill-dot"></span>Room Mists</a>
-    </div>
-  </div>
-
-  <!-- HERO — split into two worlds -->
-  <section class="sb-hero2">
-    <div class="sb-hero2-intro">
-      <div class="sb-hero2-eyebrow">BRISE · Premium Air Fresheners in Canada</div>
-      <h1 class="sb-hero2-title">Two ways to make any space smell incredible.</h1>
-      <p class="sb-hero2-sub">Made in the USA by AROMAR · shipped fast from Canada · essential-oil fragrance.</p>
-    </div>
-    <div class="sb-hero2-split">
-      <a href="#oopsie" class="sb-hero2-panel sb-hero2-panel--op">
-        <div class="sb-hero2-panel-num">01</div>
-        <div class="sb-hero2-panel-body">
-          <div class="sb-hero2-panel-kicker">Oopsie Poopsie</div>
-          <div class="sb-hero2-panel-h">Before-You-Go Toilet Sprays</div>
-          <p>Oil-based. Spray in the bowl before you go — odors are trapped at the source. 8 fragrances.</p>
-          <span class="sb-hero2-panel-cta">Explore toilet sprays →</span>
-        </div>
-        <img class="sb-hero2-panel-img" src="/images/products/op-lemon-bergamot.webp" loading="eager" alt="Oopsie Poopsie before-you-go toilet spray" />
-      </a>
-      <a href="#room-mist" class="sb-hero2-panel sb-hero2-panel--rm">
-        <div class="sb-hero2-panel-num">02</div>
-        <div class="sb-hero2-panel-body">
-          <div class="sb-hero2-panel-kicker">AROMAR+ Spa</div>
-          <div class="sb-hero2-panel-h">Room &amp; Linen Mists</div>
-          <p>Water-based &amp; fabric-safe. Mist rooms, bedding, couches and clothing. 8 oz · 10 fragrances.</p>
-          <span class="sb-hero2-panel-cta">Explore room mists →</span>
-        </div>
-        <img class="sb-hero2-panel-img" src="/images/products/rm-white-gardenia.webp" loading="eager" alt="AROMAR+ Spa Room Mist room and linen spray" />
-      </a>
+  <!-- HERO — Oopsie Poopsie -->
+  <section class="sb-hero2 sb-hero2--solo">
+    <div class="sb-hero2-solo-grid">
+      <div class="sb-hero2-intro sb-hero2-intro--left">
+        <div class="sb-hero2-eyebrow">BRISE · Made in the USA · Shipped from Canada</div>
+        <h1 class="sb-hero2-title">The before-you-go toilet spray that actually works.</h1>
+        <p class="sb-hero2-sub">Oopsie Poopsie — spray the bowl <em>before</em> you go and odors are trapped beneath the surface. 8 essential-oil scents, pocket-sized, made in the USA.</p>
+        <a href="#products" class="sb-hero2-solo-cta">Shop the 8 scents →</a>
+      </div>
+      <div class="sb-hero2-solo-media">
+        <img src="/images/products/op-lemon-bergamot.webp" loading="eager" fetchpriority="high" alt="Oopsie Poopsie before-you-go toilet spray bottle" />
+      </div>
     </div>
   </section>
 
@@ -225,95 +195,6 @@ const faqs = [
     </div>
   </section>
 
-  <!-- ============ WORLD 2 — AROMAR+ SPA ROOM MIST ============ -->
-  <section class="world world--rm" id="room-mist">
-    <div class="world-inner">
-      <header class="world-header">
-        <div class="world-num">02</div>
-        <div class="world-head-text">
-          <div class="world-kicker">AROMAR+ · Spa Room Mist</div>
-          <h2 class="world-title">The room &amp; linen mist</h2>
-          <p class="world-tagline">A water-based room spray and linen mist with essential-oil fragrance. Safe on fabric — no oily film, no staining. Spritz the air, your bedding, furniture and clothing. 8&nbsp;oz.</p>
-          <div class="world-trust"><span>Water-based</span><span>·</span><span>Fabric-safe</span><span>·</span><span>8 oz</span><span>·</span><span>10 fragrances</span></div>
-        </div>
-      </header>
-
-      <!-- Products -->
-      <div class="products-wrapper">
-        <div class="products-header">
-          <div class="products-heading">
-            <div class="flex-horizontal">
-              <div class="icon-wrapper"><img src="/images/Cross.svg" loading="lazy" alt="" /></div>
-              <div class="text-size-large text-weight-medium caps">Shop the 10 scents</div>
-            </div>
-            <div class="opacity-60"><div>Room &amp; fabric mists · 8 oz</div></div>
-          </div>
-          <div class="button-wrapper">
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="black-button w-inline-block">
-              <div class="text-weight-medium caps">Shop on Amazon</div>
-            </a>
-          </div>
-        </div>
-        <div class="products-card-wrapper">
-          <div role="list" class="products-cards">
-            {roomMists.map((p) => (
-              <div role="listitem">
-                <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="product-link w-inline-block">
-                  <div class="product-card-image">
-                    {p.image
-                      ? <img src={p.image} loading="lazy" alt={`AROMAR+ ${p.name} Spa Room Mist 8 oz`} class="image" />
-                      : <div class="sb-img-placeholder"><span>{p.name}</span><small>Photo coming soon</small></div>}
-                  </div>
-                  <div class="product-card-info">
-                    <div class="info">
-                      <div class="text-size-small text-weight-medium caps">{p.name}{p.star ? ' (type)' : ''}</div>
-                      <div class="sb-scent-notes">{p.notes}</div>
-                    </div>
-                    <div class="buy-now-button">Buy Now →</div>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-        <p class="sb-star-disclaimer">* Channel #5 Inspired: experience the captivating allure of our Channel&nbsp;#5* (type) Room Mist, carefully crafted to evoke the sophistication reminiscent of the iconic fragrance. An independent AROMAR+ fragrance — not affiliated with or endorsed by any luxury brand.</p>
-      </div>
-
-      <!-- How to use + Where to use -->
-      <div class="world-grid">
-        <div class="world-howto">
-          <div class="world-subhead">How to use</div>
-          <ol class="how-steps">
-            <li><span class="how-step-n">1</span><div><h4>Mist the air &amp; fabric</h4><p>A few sprays over the room, bedding, couch, curtains or clothing.</p></div></li>
-            <li><span class="how-step-n">2</span><div><h4>Let it settle</h4><p>The water-based formula dries clean — no oily residue, no staining.</p></div></li>
-            <li><span class="how-step-n">3</span><div><h4>Refresh anytime</h4><p>Reapply on linen and upholstery; the scent holds for days.</p></div></li>
-          </ol>
-        </div>
-        <div class="world-uses">
-          <div class="world-subhead">Where to use</div>
-          <div class="sb-uses-grid">
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 17V7a1 1 0 0 1 1-1h11a3 3 0 0 1 3 3v3"/><path d="M2 13h18a2 2 0 0 1 2 2v2"/><path d="M2 17v2M22 17v2"/></svg></div>
-              <h4>Bedroom &amp; Linen</h4><p>Mist pillows, sheets and mattresses for spa-like sleep.</p>
-            </div>
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5H2z"/><path d="M5 18v2M19 18v2"/></svg></div>
-              <h4>Living Room &amp; Fabric</h4><p>Refresh couches, curtains and rugs in seconds.</p>
-            </div>
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a2 2 0 1 0-1.7 3L3 13h18l-7.3-6A2 2 0 0 0 12 4z"/><path d="M3 13v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/></svg></div>
-              <h4>Closets &amp; Clothing</h4><p>Keep wardrobes, drawers and gym bags fresh for days.</p>
-            </div>
-            <div class="sb-use-card">
-              <div class="sb-use-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6.5" cy="10.5" r="1.8"/><circle cx="10.5" cy="6.5" r="1.8"/><circle cx="13.5" cy="6.5" r="1.8"/><circle cx="17.5" cy="10.5" r="1.8"/><path d="M8 15.5c1.2-1.6 6.8-1.6 8 0 .9 1.2-.6 3-2.2 3-1 0-1.2-.6-1.8-.6s-.8.6-1.8.6c-1.6 0-3.1-1.8-2.2-3z"/></svg></div>
-              <h4>Pets &amp; Whole Home</h4><p>A pet-friendly essential-oil freshener for every room.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- WHERE TO BUY + FAQ + FINAL CTA -->
   <section>
     <div class="padding-global">
@@ -321,16 +202,16 @@ const faqs = [
         <div class="sb-wtb-section" id="where-to-buy">
           <div class="sb-wtb-inner">
             <div class="sb-wtb-eyebrow">● Available across Canada</div>
-            <h2 class="sb-wtb-heading">Where to Buy Oopsie Poopsie &amp; AROMAR Room Mists in Canada</h2>
-            <p class="sb-wtb-body">Buy <strong>Oopsie Poopsie pre-poop toilet sprays</strong> and <strong>AROMAR+ Spa Room Mists</strong> online in Canada. 8 toilet-spray fragrances and 10 room-and-fabric mists, all made in the USA by AROMAR, sold through our Amazon Canada storefront. Ships from within Canada with no customs fees and Amazon buyer-guarantee returns.</p>
-            <div class="sb-wtb-trust"><span>✓ Made in USA</span><span class="sb-wtb-dot"></span><span>✓ Ships from Canada</span><span class="sb-wtb-dot"></span><span>✓ 18 fragrances</span><span class="sb-wtb-dot"></span><span>✓ Verified Amazon storefront</span></div>
-            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-wtb-cta">Shop on Amazon Canada →</a>
+            <h2 class="sb-wtb-heading">Where to Buy Oopsie Poopsie Toilet Spray in Canada</h2>
+            <p class="sb-wtb-body">Buy <strong>Oopsie Poopsie pre-poop toilet sprays</strong> online in Canada — 8 essential-oil fragrances, made in the USA. Ships fast from within Canada with no customs fees and easy returns.</p>
+            <div class="sb-wtb-trust"><span>✓ Made in USA</span><span class="sb-wtb-dot"></span><span>✓ Ships from Canada</span><span class="sb-wtb-dot"></span><span>✓ 8 fragrances</span><span class="sb-wtb-dot"></span><span>✓ Essential oils</span></div>
+            <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-wtb-cta">Shop Oopsie Poopsie →</a>
           </div>
         </div>
 
         <div class="faq-wrapper" id="faq">
           <div class="faq-heading">
-            <div class="heading-5">FAQ: Pre-Poop Toilet Sprays &amp; Spa Room Mists</div>
+            <div class="heading-5">Oopsie Poopsie FAQ: Pre-Poop Toilet Spray</div>
           </div>
           <div class="faq-component">
             <div role="list" class="faq-list">
@@ -358,11 +239,11 @@ const faqs = [
         <div class="sb-final-cta">
           <div class="sb-final-cta-glow"></div>
           <div class="sb-final-cta-inner">
-            <div class="sb-final-cta-eyebrow"><span class="sb-final-cta-dot"></span>Toilet sprays &amp; room mists</div>
+            <div class="sb-final-cta-eyebrow"><span class="sb-final-cta-dot"></span>The anti-awkward scent</div>
             <h2 class="sb-final-cta-heading">Stop covering odors.<br /><em>Trap them at the source.</em></h2>
-            <p class="sb-final-cta-sub">18 premium fragrances. Made in the USA. Shipped fast across Canada.</p>
+            <p class="sb-final-cta-sub">8 essential-oil fragrances. Made in the USA. Shipped fast across Canada.</p>
             <a href={AMAZON_URL} target="_blank" rel="noopener noreferrer" class="sb-final-cta-button"><span>Shop Now</span><span class="sb-final-cta-arrow">→</span></a>
-            <div class="sb-final-cta-trust"><span>✓ Made in USA</span><span class="sb-final-cta-sep"></span><span>✓ Ships from Canada</span><span class="sb-final-cta-sep"></span><span>✓ Verified Amazon storefront</span></div>
+            <div class="sb-final-cta-trust"><span>✓ Made in USA</span><span class="sb-final-cta-sep"></span><span>✓ Ships from Canada</span><span class="sb-final-cta-sep"></span><span>✓ Essential oils</span></div>
           </div>
         </div>
       </div>
@@ -380,8 +261,7 @@ const faqs = [
               <div class="footer-text-size text-weight-medium">Explore</div>
               <div class="footer-links-wrapper">
                 <a href="/" class="footer-link">Home</a>
-                <a href="#oopsie" class="footer-link">Toilet Sprays</a>
-                <a href="#room-mist" class="footer-link">Room Mists</a>
+                <a href="#products" class="footer-link">Shop</a>
               </div>
             </div>
             <div class="footer-grid-wrap">
@@ -423,41 +303,10 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Two-worlds interactions: sticky pill nav show/hide + active section highlight -->
+  <!-- Carousel interactions: prev/next + button disabled state -->
   <script is:inline>
     (function () {
       function initWorlds() {
-        var pillnav = document.getElementById('sb-pillnav');
-        var hero = document.querySelector('.sb-hero2');
-        var pills = Array.prototype.slice.call(document.querySelectorAll('.sb-pill'));
-        var sections = ['oopsie', 'room-mist'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
-        if (!pillnav) return;
-
-        // Show pill nav once the hero is scrolled past
-        if ('IntersectionObserver' in window && hero) {
-          var heroObs = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              pillnav.classList.toggle('is-visible', !e.isIntersecting);
-            });
-          }, { rootMargin: '-60px 0px 0px 0px' });
-          heroObs.observe(hero);
-        }
-
-        // Highlight the active world while scrolling
-        if ('IntersectionObserver' in window && sections.length) {
-          var secObs = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) {
-                var id = e.target.id;
-                pills.forEach(function (p) {
-                  p.classList.toggle('is-active', p.getAttribute('data-target') === id);
-                });
-              }
-            });
-          }, { rootMargin: '-45% 0px -45% 0px' });
-          sections.forEach(function (s) { secObs.observe(s); });
-        }
-
         // Carousels: prev/next buttons scroll the track by one slide
         document.querySelectorAll('[data-carousel]').forEach(function (car) {
           var track = car.querySelector('[data-track]');
